@@ -1,6 +1,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport"  />
     <link rel="stylesheet" href="style.css">
     <title>Sarim Haque - Growth Marketer & Product Manager</title>
     <script>
@@ -13,6 +14,19 @@
   ga('send', 'pageview');
 
 </script>
+      
+           <style>
+        @media (max-width: 767px) {
+    
+    .screen1{
+        display: none;
+    }
+    
+    .screen2{
+        display: none;
+    }
+}
+        </style>
       
       <link rel="image_src" 
       type="image/jpeg" 
@@ -54,7 +68,7 @@
           <a class="direct" href="http://caspy.com">Check out Caspy &rarr;</a>
          </div>
         </div>
-        <img class="screen1" src="capy-man.svg" style="margin-left: 10%; margin-top: -30%;">
+        <img class="screen1" src="capy-man.svg" style="margin-left: 10%; margin-top: -25%;">
       </a>
 
       <a class="all" href="http://thedonaldtest.com">
@@ -72,7 +86,7 @@
               <h2>whathefis.ml</h2><p class="info">Memefied Guide to Machine Learning for a complete novice.</p>
               <a class="direct" href="http://whatthefis.ml">Check out What The F Is ML? &rarr;</a>
           </div>
-          <img class="screen1" src="AngryRobot.png" style=" margin-left: 10%; margin-top: -31%; width: 300px;">
+          <img class="screen1" src="AngryRobot.png" style=" margin-left: 10%; margin-top: -26%; width: 300px;">
           </a>      
 
       <a class="all">
@@ -90,12 +104,44 @@
         <!--Images & Links to Social Media Profiles-->
 
       <div class="media">
-        <ul style="margin-left:-30%; margin-top: -19.3%;">
+        <ul>
           <li class="links"><a href="https://twitter.com/sarimhaq"><img class="social" src="twitter.svg"></a></li>
           <li class="links"><a href="https://www.linkedin.com/in/sarimhaque/"><img class="social" src="linkedin.svg"></a></li>
           <li class="links"><a href="https://www.instagram.com/sarimhaq/"><img class="social" src="instagram.svg"></a></li>
         </ul>
       </div>
+        
+    <script>
+     function getBrowserSize(){
+       var w, h;
 
+         if(typeof window.innerWidth != 'undefined')
+         {
+          w = window.innerWidth; //other browsers
+          h = window.innerHeight;
+         } 
+         else if(typeof document.documentElement != 'undefined' && typeof      document.documentElement.clientWidth != 'undefined' && document.documentElement.clientWidth != 0) 
+         {
+          w =  document.documentElement.clientWidth; //IE
+          h = document.documentElement.clientHeight;
+         }
+         else{
+          w = document.body.clientWidth; //IE
+          h = document.body.clientHeight;
+         }
+       console.log(w);
+         return {'width':w, 'height': h};
+       
+}
+
+if(parseInt(getBrowserSize().width) < 1000){
+ document.getElementsByClassName("screen1")[0].style.display = "none";
+document.getElementsByClassName("screen1")[1].style.display = "none";
+document.getElementsByClassName("screen1")[2].style.display = "none";
+    document.getElementsByClassName("screen2")[0].style.display = "none";
+}    
+        
+    </script>
+   
   </body>
 </html>

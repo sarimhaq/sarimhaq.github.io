@@ -3,7 +3,6 @@
 html, body {
   margin: 0;
   background-color: #ffffff;
-  width: 100vw;
 }
 
 .home {
@@ -79,7 +78,7 @@ span {
 }
 
 .work {
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
 }
 

@@ -1,6 +1,6 @@
 {
 "categories":[
-				{"id":0, "name":'Technical', "open": false, "subCategories": [{
+				{"id":0, "name":"Technical", "open": false, "subCategories": [{
 					"title":"Apologize For Problem/Bug", 
 					"subject":"I'm sorry! We're aware of your problem and working to fix it.", 
 					"email":"Hey Person <br><br> I just saw your email. <br><br>Yikes! I'm so sorry you've been having problems. <br><br>I'm going to investigate what's going on and get back to you. <br><br>We'll make sure this gets fixed ASAP. <br><br>In the meantime, let me know if there's anything I can do to make sure you have an awesome experience."},]},

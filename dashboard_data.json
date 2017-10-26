@@ -5,19 +5,19 @@
     "emailSentiment24": 4,
     "weeklyEmailsSent":{
         "labels": ["M", "T", "W", "T", "F", "S", "S"],
-        "series": [12, 17, 7, 14, 24, 15, 24]
+        "series": [[12, 17, 7, 14, 24, 15, 24]]
     }, 
     "weeklyEmailsRecieved":{
         "labels": ["M", "T", "W", "T", "F", "S", "S"],
-        "series": [12, 17, 7, 14, 24, 15, 24]
+        "series": [[12, 17, 7, 14, 24, 15, 24]]
     },   
     "weeklyResponseTime":{
         "labels": ["M", "T", "W", "T", "F", "S", "S"],
-        "series": [45, 23, 45, 53, 24, 21, 24]
+        "series": [[45, 23, 45, 53, 24, 21, 24]]
     },    
     "weeklyEmailsSentiment":{
         "labels": ["M", "T", "W", "T", "F", "S", "S"],
-        "series": [3, 6, 7, 4, 8, 6, 2]
+        "series": [[3, 6, 7, 4, 8, 6, 2]]
     },
     "emailsSentChange": 42,
     "emailsRecievedChange": 23,

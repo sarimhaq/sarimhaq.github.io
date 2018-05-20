@@ -78,7 +78,7 @@ function initBotApp () {
           return botui.action.text({ 
               delay: 1000,
               action: {
-                  placeholder: 'Name'
+                  placeholder: 'First Name'
               }
           });
       }).then(function (res) {
@@ -86,7 +86,7 @@ function initBotApp () {
           return botui.message.add({
               loading: true,
               delay: 2000,
-              cssClass: ['two-line-msg', 'three-on-mobile'],
+              cssClass: ['two-line-msg'],
               content: 'Hi ' + res.value + '! Nice to meet you. What is your email id?'
           });
       }).then(function () { 

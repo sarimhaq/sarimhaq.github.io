@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Thank You!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/botui/build/botui.min.css" />
+    <link rel="stylesheet" href="./botui-theme-default.css" />
+    <meta name="description" content="Conversational Bot to convert leads into ops">
+    <style>
+    
+    html
+    {
+        background-image:url("https://images.pexels.com/photos/176851/pexels-photo-176851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350");
+        background-size: cover;
+        background-repeat: no-repeat;
+        /*background-image: linear-gradient(to top, #0D1130 0%, #060715 100%);*/
+        height: 100%;
+    }
+         .two-line-msg{
+        margin-bottom: 28px;
+    }
+    
+     .three-line-msg{
+        margin-bottom: 46px;
+    }
+
+</style>
+
+  </head>
+  <body>
+     <img src="http://yorkvilleu.ca/all/intl/static/img/YU_logo_combo_sm_WHITE.2b53ec9.png" style="width: 240px;position: absolute;top: 20px;left: 20px;">
+    <div class="botui-app-container" id="lady-bird" style="height: 80vh; padding-top: 10vh; overflow: scroll;">
+      <bot-ui></bot-ui>
+    </div>
+    <script src="https://cdn.jsdelivr.net/vue/2.0.5/vue.min.js"></script>
+    <script src="https://unpkg.com/botui/build/botui.js"></script>
+    <script src="./lady-bird.js"></script>
+  </body>
+</html>

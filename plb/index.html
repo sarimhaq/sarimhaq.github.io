@@ -12,6 +12,7 @@
     html
     {
         background-image:url("https://images.pexels.com/photos/176851/pexels-photo-176851.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350");
+        background-color: black;
         background-size: cover;
         background-repeat: no-repeat;
         /*background-image: linear-gradient(to top, #0D1130 0%, #060715 100%);*/
@@ -24,9 +25,15 @@
      .three-line-msg{
         margin-bottom: 46px;
     }
-        @media screen and (max-width: 900px) {
+        @media screen and (max-width: 760px) {
             .two-on-mobile {
-                margin-bottom: 28px;
+                margin-bottom: 28px !important;
+            }
+            .three-on-mobile {
+                margin-bottom: 46px !important;
+            }
+            .four-on-mobile{
+                margin-bottom: 64px  !important;
             }
 }
 

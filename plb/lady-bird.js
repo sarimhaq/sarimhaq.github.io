@@ -1,55 +1,34 @@
 var botui = new BotUI('lady-bird');
 
 function initBotApp () {
- // let botui = BotUI('my-botui-app', {vue: Vue})
-  var userInfo = {};
-  let availableTimes = [];
-  let rawDates = [];
-  var request = new XMLHttpRequest();
-  var token = "8a2fd9e0-95f5-4bcf-b405-1904ac269e52";
+    var userInfo = {};
+    let availableTimes = [];
+    let rawDates = [];
+    var request = new XMLHttpRequest();
+    var token = "8a2fd9e0-95f5-4bcf-b405-1904ac269e52";
     
- var getTimes = function(requestedTime){
-      
-      if(!requestedTime){
-          request.open("GET", "https://prjladybird.herokuapp.com/api/timeslots/list");
-          request.onreadystatechange = function(){
-              if(request.readyState == 4 && request.status == 200){
-                  console.log(request.responseText);
-                  console.log(JSON.parse(request.response).data);
-                  rawDates = JSON.parse(request.response).data;
-                  availableTimes = convertor(rawDates.slice(0, 4));
-                  
-                  /*availableTimes=[
-                      { 
-                          text: 'Monday, 26 April, at 9 am',
-                          value: 3232
-                      },
-                      {
-                          text: 'Tuesday, 16 April, at 9 am',
-                          value: 32321
-                      },
-                      { 
-                          text: 'Tuesday, 13 April, at 10 am',
-                          value: 42232
-                      },
-                      { 
-                          text: 'None of the above works for me',
-                          value: 'none'
-                      }
-                  ];*/
-                  
-              }
-          }
-          request.setRequestHeader("X-Client-Token", "8a2fd9e0-95f5-4bcf-b405-1904ac269e52");
-        request.send(null);
-      } else {
+    var getTimes = function(requestedTime, firstpass){ //firstpass==true then getTime preceeds showTime
+        if(!requestedTime){
+            request.open("GET", "https://prjladybird.herokuapp.com/api/timeslots/list");
+            request.onreadystatechange = function(){
+                if(request.readyState == 4 && request.status == 200){
+                    console.log(request.responseText);
+                    console.log(JSON.parse(request.response).data);
+                    rawDates = JSON.parse(request.response).data;
+                    availableTimes = convertor(rawDates.slice(0, 4));
+                    if(firstpass){
+                        showTimes();
+                    }
+                }
+            }
+            request.setRequestHeader("X-Client-Token", "8a2fd9e0-95f5-4bcf-b405-1904ac269e52");
+            request.send(null);
+        } else {
           //reqeusts to be sent with preference. If time available confirm(time) else showTimes(availableTimes) 
-          
-      }  
-  };
+        }  
+    };
     
-  var showTimes= function(availableTimes) {
-      console.log("Show Time activated" + availableTimes); //DELETE
+  var showTimes= function() {
       return botui.action.button({
           delay: 1000,   
           action: availableTimes
@@ -67,76 +46,73 @@ function initBotApp () {
           userInfo = JSON.parse(localStorage.getItem('data'));
       }
   };    
-
-  var getInfo = function(){
-      botui.message.add({ 
-          human: false,
-          cssClass: ['two-line-msg', 'three-on-mobile'],
-          delay: 1000,
-          content: "Hey 👋 I am Lucy, Yorkville University's AI Assistant. What is your name?"
-      }).then(function () { 
-          return botui.action.text({ 
-              delay: 1000,
-              action: {
-                  placeholder: 'First Name'
-              }
-          });
-      }).then(function (res) {
-          userInfo.firstName = res.value;
-          return botui.message.add({
-              loading: true,
-              delay: 2000,
-              cssClass: ['two-line-msg'],
-              content: 'Hi ' + res.value + '! Nice to meet you. What is your email id?'
-          });
-      }).then(function () { 
-          return botui.action.text({ 
-              delay: 1000,
-              action: {
-                  placeholder: 'Email Id'
-              }
-          });
-      }).then(function (res) { 
-          userInfo.emailId = res.value;
-          localStorage.setItem('data', JSON.stringify(userInfo));
-          return botui.message.add({
-              loading: true,
-              delay: 2000,
-              content: "Got it 👍"
-          });
-      }).then(function () { 
-          afterPleasantries();
-      })
-  
-  }
     
+    var getInfo = function(){
+        botui.message.add({ 
+            human: false,
+            cssClass: ['two-line-msg', 'three-on-mobile'],
+            delay: 1000,
+            content: "Hey 👋 I am Lucy, Yorkville University's AI Assistant. What is your name?"
+        }).then(function () { 
+            return botui.action.text({ 
+                delay: 1000,
+                action: {
+                    placeholder: 'First Name'
+                }
+            });
+        }).then(function (res) {
+            userInfo.firstName = res.value;
+            return botui.message.add({
+                loading: true,
+                delay: 2000,
+                cssClass: ['two-line-msg'],
+                content: 'Hi ' + res.value + '! Nice to meet you. What is your email id?'
+            });
+        }).then(function () { 
+            return botui.action.text({ 
+                delay: 1000,
+                action: {
+                    placeholder: 'Email Id'
+                }
+            });
+        }).then(function (res) { 
+            userInfo.emailId = res.value;
+            localStorage.setItem('data', JSON.stringify(userInfo));
+            return botui.message.add({
+                loading: true,
+                delay: 2000,
+                content: "Got it 👍"
+            });
+        }).then(function () { 
+            afterPleasantries();
+        })
+    }
     
-  var greetings = function(){
-      botui.message.add({ 
-          human: false,
-          cssClass: 'two-line-msg',
-          delay: 1000,
-          content: "Hey " + userInfo.firstName + " 👋 I am Lucy, Yorkville University's AI Assistant."
-      }).then(function () { 
-          afterPleasantries();
-      });
-  }
+    var greetings = function(){
+        botui.message.add({ 
+            human: false,
+            cssClass: 'two-line-msg',
+            delay: 1000,
+            content: "Hey " + userInfo.firstName + " 👋 I am Lucy, Yorkville University's AI Assistant."
+        }).then(function () { 
+            afterPleasantries();
+        });
+    }
     
-  var convertor = function(dates){
-      var convertedTimes = [];
-      for (var i = 0; i < dates.length; i++){
-          var dateObject = new Date(dates[i]);
-          var singleDate = {};
-          singleDate.text = dateObject.toDateString() + " at " + dateObject.toLocaleTimeString();
-          singleDate.value = dates[i];
-          convertedTimes.push(singleDate);
-      }
-      convertedTimes.push({ text: 'None of the above works for me', value: 'none'});
-      return convertedTimes;
-  };
-
-  
-  var confirm = function(confirmTime){
+    var convertor = function(dates){
+        var convertedTimes = [];
+        for (var i = 0; i < dates.length; i++){
+            var dateObject = new Date(dates[i]);
+            var singleDate = {};
+            singleDate.text = dateObject.toDateString() + " at " + dateObject.toLocaleTimeString();
+            singleDate.value = dates[i];
+            convertedTimes.push(singleDate);
+        }
+        convertedTimes.push({ text: 'None of the above works for me', value: 'none'});
+        return convertedTimes;
+    };
+    
+    var confirm = function(confirmTime){
       return botui.message.add({
            loading: true,
            cssClass: 'two-on-mobile',
@@ -244,7 +220,7 @@ function initBotApp () {
                 content: "When are you available to jump on a quick phone call?"
             });
         }).then(function () {
-            showTimes(availableTimes);
+            getTimes(false, true);
         }); 
     }
     

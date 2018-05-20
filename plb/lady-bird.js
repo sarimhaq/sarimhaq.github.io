@@ -51,7 +51,7 @@ function initBotApp () {
   var showTimes= function(availableTimes) {
       console.log("Show Time activated" + availableTimes); //DELETE
       return botui.action.button({
-          delay: 2000,   
+          delay: 1000,   
           action: availableTimes
       }).then(function (res) {
           if(res.value !== 'none'){
@@ -139,7 +139,7 @@ function initBotApp () {
   var confirm = function(confirmTime){
       return botui.message.add({
            loading: true,
-           cssClass: 'two-line-msg',
+           cssClass: 'two-on-mobile',
            delay: 2000,
            content: "You selected " + confirmTime.text
        }).then(function () { // get the result

@@ -71,7 +71,7 @@ function initBotApp () {
   var getInfo = function(){
       botui.message.add({ 
           human: false,
-          cssClass: 'two-line-msg',
+          cssClass: ['two-line-msg', 'three-on-mobile'],
           delay: 1000,
           content: "Hey 👋 I am Lucy, Yorkville University's AI Assistant. What is your name?"
       }).then(function () { 
@@ -86,7 +86,7 @@ function initBotApp () {
           return botui.message.add({
               loading: true,
               delay: 2000,
-              cssClass: 'two-line-msg',
+              cssClass: ['two-line-msg', 'three-on-mobile'],
               content: 'Hi ' + res.value + '! Nice to meet you. What is your email id?'
           });
       }).then(function () { 
@@ -226,7 +226,7 @@ function initBotApp () {
     var afterPleasantries = function () { 
         return botui.message.add({
             loading: true,
-            cssClass: 'three-line-msg',
+            cssClass: ['three-line-msg', 'four-on-mobile'],
             delay: 2000,
             content: "Thank you for showing interest in Yorkville University. I'll help you get in touch with our Admission Advisor."
         }).then(function () { 

@@ -41,7 +41,7 @@ function initBotApp () {
                             human: false,
                             cssClass: ['three-line-msg', 'four-on-mobile'],
                             delay: 2000,
-                            content: "Sorry, the time slot you selected isn't available, here are some other time slots closet to your selection"
+                            content: "Sorry, the time slot you selected isn't available, here are some other time slots closest to your selection"
                         }).then(function () { 
                             showTimes();
                         })
@@ -206,7 +206,7 @@ function initBotApp () {
                       return botui.message.add({
                           loading: true,
                           delay: 2000,
-                          cssClass: 'two-line-msg',
+                          cssClass: ['two-line-msg', 'three-on-mobile'],
                           content: 'Your appointement has been booked ' + userInfo.firstName + '!(check). Looking forward to talking with you!'
                       }).then(function(){
                           return botui.message.add({

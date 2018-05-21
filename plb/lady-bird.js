@@ -7,7 +7,7 @@ function initBotApp () {
     var request = new XMLHttpRequest();
     var token = "8a2fd9e0-95f5-4bcf-b405-1904ac269e52";
     
-    var getTimes = function(requestedTime, firstpass){ //firstpass==true then getTime preceeds showTime
+     var getTimes = function(requestedTime, firstpass){ //firstpass==true then getTime preceeds showTime
         if(!requestedTime){
             request.open("GET", "https://prjladybird.herokuapp.com/api/timeslots/list");
             request.onreadystatechange = function(){
@@ -24,7 +24,33 @@ function initBotApp () {
             request.setRequestHeader("X-Client-Token", "8a2fd9e0-95f5-4bcf-b405-1904ac269e52");
             request.send(null);
         } else {
-          //reqeusts to be sent with preference. If time available confirm(time) else showTimes(availableTimes) 
+            request.open("GET", "https://prjladybird.herokuapp.com/api/timeslots/ask?message="+requestedTime);
+               request.onreadystatechange = function(){
+                if(request.readyState == 4 && request.status == 200){
+                    console.log(request.response);
+                    if(JSON.parse(request.response).can_book){
+                        var dateObject = new Date(JSON.parse(request.response).requested_time);
+                        var singleDate = {};
+                        singleDate.text = dateObject.toDateString() + " at " + dateObject.toLocaleTimeString();
+                        singleDate.value = JSON.parse(request.response).requested_time;
+                        confirm(singleDate);
+                    } else {
+                        rawDates = JSON.parse(request.response).data;
+                        availableTimes = convertor(rawDates.slice(0, 4));
+                         return botui.message.add({ 
+                            human: false,
+                            cssClass: ['three-line-msg', 'four-on-mobile'],
+                            delay: 2000,
+                            content: "Sorry, the time slot you selected isn't available, here are some other time slots closet to your selection"
+                        }).then(function () { 
+                            showTimes();
+                        })
+                    }
+                }
+            }
+            request.setRequestHeader("X-Client-Token", "8a2fd9e0-95f5-4bcf-b405-1904ac269e52");
+            request.send(null);
+            
         }  
     };
     
@@ -71,6 +97,7 @@ function initBotApp () {
         }).then(function () { 
             return botui.action.text({ 
                 delay: 1000,
+                sub_type: 'email',
                 action: {
                     placeholder: 'Email Id'
                 }
@@ -158,7 +185,7 @@ function initBotApp () {
       return botui.message.add({
           loading: true,
           delay: 2000,
-          content: 'What time suits you best?'
+          content: 'What other time suits you best?'
       }).then(function () { 
           return botui.action.text({ 
               delay: 1000,
@@ -167,12 +194,12 @@ function initBotApp () {
               }
           });
       }).then(function (res) {
-          getTimes(res);
+          getTimes(res.value, false);
       });
   }
   
   
-  var sendBooking = function(res){
+  var sendBooking = function(res){  
        request.open("POST", "https://prjladybird.herokuapp.com/api/timeslots/book");
           request.onreadystatechange = function(){
               if(request.readyState == 4 && request.status == 200 && JSON.parse(request.response).booked){
@@ -180,9 +207,16 @@ function initBotApp () {
                           loading: true,
                           delay: 2000,
                           cssClass: 'two-line-msg',
-                          content: 'Your appointement has been booked ' + userInfo.firstName + '. Looking forward to talking with you!'
-                      })     
-              }  else if (request.readyState == 4 && request.status == 404) {
+                          content: 'Your appointement has been booked ' + userInfo.firstName + '!(check). Looking forward to talking with you!'
+                      }).then(function(){
+                          return botui.message.add({
+                              loading: true,
+                              delay: 2000,
+                              cssClass: ['three-line-msg', 'four-on-mobile'],
+                              content: 'In the meantime, please dont forget to connect with us over [Facebook](https://www.facebook.com/YorkvilleUniversity/)^ & [Twitter](https://twitter.com/yorkvilleu?lang=en)^'
+                      });
+                      });     
+              }  else if (request.readyState == 4 && request.status != 200) {
                         return botui.message.add({
                           loading: true,
                           delay: 2000,
@@ -194,7 +228,9 @@ function initBotApp () {
                   }
           }
           request.setRequestHeader("X-Client-Token", "8a2fd9e0-95f5-4bcf-b405-1904ac269e52");
-      request.send("request_time="+res.value);
+         request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+      console.log(res.value)
+      request.send("request_time="+res.value+"&email="+userInfo.emailId);
   };
     
 

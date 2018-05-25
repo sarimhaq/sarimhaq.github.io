@@ -123,7 +123,7 @@ function initBotApp () {
             human: false,
             cssClass: 'two-line-msg',
             delay: 1000,
-            content: "Hey " + userInfo.firstName + " 👋 I am Lucy, Yorkville University's AI Assistant."
+            content: "Hey " + userInfo.firstName + " 👋 I am Lucy, Awesome University's AI Assistant."
         }).then(function () { 
             afterPleasantries();
         });

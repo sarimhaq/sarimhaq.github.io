@@ -7,9 +7,12 @@ function initBotApp () {
     var request = new XMLHttpRequest();
     var token = "8a2fd9e0-95f5-4bcf-b405-1904ac269e52";
     
-     var getTimes = function(requestedTime, firstpass){ //firstpass==true then getTime preceeds showTime
+     var getTimes = function(requestedTime, firstpass){//firstpass==true then getTime preceeds showTime
+        var timezone = jstz.determine(); 
+        console.log(timezone.name());
         if(!requestedTime){
-            request.open("GET", "https://prjladybird.herokuapp.com/api/timeslots/list");
+           
+            request.open("GET", "https://prjladybird.herokuapp.com/api/timeslots/list?timezone="+timezone.name());
             request.onreadystatechange = function(){
                 if(request.readyState == 4 && request.status == 200){
                     console.log(request.responseText);
@@ -24,7 +27,7 @@ function initBotApp () {
             request.setRequestHeader("X-Client-Token", "8a2fd9e0-95f5-4bcf-b405-1904ac269e52");
             request.send(null);
         } else {
-            request.open("GET", "https://prjladybird.herokuapp.com/api/timeslots/ask?message="+requestedTime);
+            request.open("GET", "https://prjladybird.herokuapp.com/api/timeslots/ask?message="+requestedTime+"&timezone="+timezone.name());
                request.onreadystatechange = function(){
                 if(request.readyState == 4 && request.status == 200){
                     console.log(request.response);

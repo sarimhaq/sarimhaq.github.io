@@ -81,7 +81,7 @@ function initBotApp () {
             human: false,
             cssClass: ['two-line-msg', 'three-on-mobile'],
             delay: 1000,
-            content: "Hey 👋 I am Lucy, Yorkville University's AI Assistant. What is your name?"
+            content: "Hey 👋 I am Lucy, Awesome University's AI Assistant. What is your name?"
         }).then(function () { 
             return botui.action.text({ 
                 delay: 1000,

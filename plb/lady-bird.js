@@ -243,7 +243,7 @@ function initBotApp () {
             loading: true,
             cssClass: ['three-line-msg', 'four-on-mobile'],
             delay: 2000,
-            content: "Thank you for showing interest in Yorkville University. I'll help you get in touch with our Admission Advisor."
+            content: "Thank you for showing interest in Awesome University. I'll help you get in touch with our Admission Advisor."
         }).then(function () { 
             return botui.message.add({
                 loading: true,

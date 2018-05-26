@@ -42,7 +42,6 @@ function initBotApp () {
                         availableTimes = convertor(rawDates.slice(0, 4));
                          return botui.message.add({ 
                             human: false,
-                            cssClass: ['three-line-msg', 'four-on-mobile'],
                             delay: 2000,
                             content: "Sorry, the time slot you selected isn't available, here are some other time slots closest to your selection"
                         }).then(function () { 
@@ -209,7 +208,6 @@ function initBotApp () {
                           return botui.message.add({
                               loading: true,
                               delay: 2000,
-                              cssClass: ['three-line-msg', 'four-on-mobile'],
                               content: 'In the meantime, please dont forget to connect with us over [Facebook](https://www.facebook.com/YorkvilleUniversity/)^ & [Twitter](https://twitter.com/yorkvilleu?lang=en)^'
                       });
                       });     
@@ -217,7 +215,6 @@ function initBotApp () {
                         return botui.message.add({
                           loading: true,
                           delay: 2000,
-                          cssClass: 'three-line-msg',
                           content: 'Something went wrong 😞, please check the internet connection or try to book another time slot'
                       }).then(function (res) {
                             showTimes(availableTimes);

@@ -13,6 +13,7 @@
 .botui-message{
     min-height:30px;
     height: auto;
+    overflow: auto;
 }
 .botui-message-content{
     padding:7px 13px;

@@ -79,7 +79,6 @@ function initBotApp () {
     var getInfo = function(){
         botui.message.add({ 
             human: false,
-            cssClass: ['two-line-msg', 'three-on-mobile'],
             delay: 1000,
             content: "Hey 👋 I am Lucy, Awesome University's AI Assistant. What is your name?"
         }).then(function () { 
@@ -94,7 +93,6 @@ function initBotApp () {
             return botui.message.add({
                 loading: true,
                 delay: 2000,
-                cssClass: ['two-line-msg'],
                 content: 'Hi ' + res.value + '! Nice to meet you. What is your email id?'
             });
         }).then(function () { 
@@ -121,7 +119,6 @@ function initBotApp () {
     var greetings = function(){
         botui.message.add({ 
             human: false,
-            cssClass: 'two-line-msg',
             delay: 1000,
             content: "Hey " + userInfo.firstName + " 👋 I am Lucy, Awesome University's AI Assistant."
         }).then(function () { 
@@ -145,7 +142,6 @@ function initBotApp () {
     var confirm = function(confirmTime){
       return botui.message.add({
            loading: true,
-           cssClass: 'two-on-mobile',
            delay: 2000,
            content: "You selected " + confirmTime.text
        }).then(function () { // get the result
@@ -173,7 +169,6 @@ function initBotApp () {
               } else {
                   return botui.message.add({
                       loading: true,
-                      cssClass: 'two-line-msg',
                       delay: 3000,
                       content: "Oh, no worries. What other time suits you best?"
                   }).then(function(){
@@ -209,7 +204,6 @@ function initBotApp () {
                       return botui.message.add({
                           loading: true,
                           delay: 2000,
-                          cssClass: ['two-line-msg', 'three-on-mobile'],
                           content: 'Your appointement has been booked ' + userInfo.firstName + '!(check). Looking forward to talking with you!'
                       }).then(function(){
                           return botui.message.add({
@@ -241,20 +235,17 @@ function initBotApp () {
     var afterPleasantries = function () { 
         return botui.message.add({
             loading: true,
-            cssClass: ['three-line-msg', 'four-on-mobile'],
             delay: 2000,
             content: "Thank you for showing interest in Awesome University. I'll help you get in touch with our Admission Advisor."
         }).then(function () { 
             return botui.message.add({
                 loading: true,
-                cssClass: 'two-line-msg',
                 delay: 3000,
                 content: "They will guide you step by step through the admission process."
             });
         }).then(function () { 
             return botui.message.add({
                 loading: true,
-                cssClass: 'two-line-msg',
                 delay: 3000,
                 content: "When are you available to jump on a quick phone call?"
             });

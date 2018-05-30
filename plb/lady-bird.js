@@ -5,7 +5,7 @@ function initBotApp () {
     let availableTimes = [];
     let rawDates = [];
     var request = new XMLHttpRequest();
-    var token = "8a2fd9e0-95f5-4bcf-b405-1904ac269e52";
+    var token = "4a03cc4b-2997-4d72-b6dc-deefaa7a5a23";
     
      var getTimes = function(requestedTime, firstpass){//firstpass==true then getTime preceeds showTime
         var timezone = jstz.determine(); 
@@ -24,7 +24,7 @@ function initBotApp () {
                     }
                 }
             }
-            request.setRequestHeader("X-Client-Token", "8a2fd9e0-95f5-4bcf-b405-1904ac269e52");
+            request.setRequestHeader("X-Client-Token", "4a03cc4b-2997-4d72-b6dc-deefaa7a5a23");
             request.send(null);
         } else {
             request.open("GET", "https://prjladybird.herokuapp.com/api/timeslots/ask?message="+requestedTime+"&timezone="+timezone.name());
@@ -32,7 +32,9 @@ function initBotApp () {
                 if(request.readyState == 4 && request.status == 200){
                     console.log(request.response);
                     if(JSON.parse(request.response).can_book){
+                        console.log(JSON.parse(request.response).requested_time);
                         var dateObject = new Date(JSON.parse(request.response).requested_time);
+                        dateObject.setHours(dateObject.getHours()-1);
                         var singleDate = {};
                         singleDate.text = dateObject.toDateString() + " at " + dateObject.toLocaleTimeString();
                         singleDate.value = JSON.parse(request.response).requested_time;
@@ -50,7 +52,7 @@ function initBotApp () {
                     }
                 }
             }
-            request.setRequestHeader("X-Client-Token", "8a2fd9e0-95f5-4bcf-b405-1904ac269e52");
+            request.setRequestHeader("X-Client-Token", "4a03cc4b-2997-4d72-b6dc-deefaa7a5a23");
             request.send(null);
             
         }  
@@ -187,7 +189,7 @@ function initBotApp () {
           return botui.action.text({ 
               delay: 1000,
               action: {
-                  placeholder: 'Tomorrow at 4pm, Next Wednesday at 2pm...'
+                  placeholder: 'Next Wednesday at 2pm...'
               }
           });
       }).then(function (res) {
@@ -221,7 +223,7 @@ function initBotApp () {
                         });
                   }
           }
-          request.setRequestHeader("X-Client-Token", "8a2fd9e0-95f5-4bcf-b405-1904ac269e52");
+          request.setRequestHeader("X-Client-Token", "4a03cc4b-2997-4d72-b6dc-deefaa7a5a23");
          request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       console.log(res.value)
       request.send("request_time="+res.value+"&email="+userInfo.emailId);
@@ -250,9 +252,8 @@ function initBotApp () {
             getTimes(false, true);
         }); 
     }
-    
+
     getLocalData();
-    getTimes(); 
     if(JSON.parse(localStorage.getItem('data'))!==null){
         greetings();
     } else {

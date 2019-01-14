@@ -1,0 +1,224 @@
+/*Variable and Mixins*/
+/* pow and ms functions */
+/*Vertical rhythm mixins*/
+html {
+  font-size: 100%;
+  background-image: url(../images/background-2.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 650 0;
+  font-family: "Roboto", sans-serif;
+  color: #333; }
+  @media screen and (min-width: 48em) {
+    html {
+      font-size: 112.5%; } }
+
+body {
+  margin: 0px; }
+
+h1 {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 3.79688rem;
+  margin-top: 0rem;
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: HSL(314, 99%, 25%); }
+
+h2 {
+  font-size: 1.125rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  line-height: 1.4;
+  color: HSL(209, 15%, 28%);
+  font-weight: 500; }
+
+p {
+  font-weight: 400;
+  color: HSL(207, 12%, 43%);
+  line-height: 1.4;
+  text-indent: -0.5em; }
+
+.mobile-bg {
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  bottom: 0;
+  height: 5.69531rem;
+  background-image: url(../images/mobile-bg.svg);
+  background-size: cover;
+  display: none; }
+
+.parent {
+  height: auto;
+  width: auto; }
+  .parent .pink-stripe {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    height: 1.6875rem;
+    background-color: HSL(314, 99%, 25%); }
+  .parent .content {
+    margin-top: 5.6rem;
+    margin-left: 5.6rem;
+    display: grid;
+    grid-template-columns: 5.69531rem 28rem;
+    grid-template-rows: auto; }
+    .parent .content .text {
+      grid-column: 2;
+      grid-row: 1;
+      margin-left: 1.4rem; }
+    .parent .content .logo {
+      grid-column: 1;
+      grid-row: 1;
+      padding-top: 0.55rem; }
+      .parent .content .logo img {
+        width: 5.69531rem; }
+    .parent .content .ctas {
+      width: 100%;
+      margin-top: 2.8rem; }
+    .parent .content a:nth-child(1), .parent .content a:nth-child(2) {
+      display: inline-block;
+      cursor: pointer; }
+    .parent .content a:nth-child(1) {
+      text-decoration: none;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(135deg, HSL(314, 50%, 55%) 0, HSL(314, 99%, 25%) 100%);
+      border: none;
+      border-radius: 10px;
+      height: 1.6875rem;
+      line-height: 1.6875rem;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-appearance: none;
+      width: 8.54297rem;
+      padding: 10px 0 16px;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); }
+    .parent .content a:nth-child(2) {
+      margin-left: 1.125rem;
+      text-decoration: none;
+      text-align: center;
+      color: HSL(314, 99%, 25%);
+      background: none;
+      border: HSL(314, 99%, 25%) 2px solid;
+      border-radius: 10px;
+      height: 1.6875rem;
+      line-height: 1.6875rem;
+      font-weight: 500;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-appearance: none;
+      min-width: 8.54297rem;
+      width: auto;
+      padding: 10px 0 16px;
+      text-decoration: none; }
+    .parent .content a:nth-child(1):active {
+      box-shadow: none; }
+    .parent .content a:nth-child(2):active {
+      background-color: HSL(314, 99%, 25%);
+      color: #fff; }
+
+@media screen and (max-width: 1000px) {
+  html {
+    background: none; }
+  h1 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 12vw;
+    margin-top: 0rem;
+    margin-bottom: 1.4rem;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: HSL(314, 99%, 25%); }
+  .mobile-bg {
+    display: block; }
+  .parent {
+    height: auto;
+    width: auto; }
+    .parent .pink-stripe {
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+      position: fixed;
+      top: 0;
+      height: 1.6875rem;
+      background-color: HSL(314, 99%, 25%); }
+    .parent .content {
+      margin-top: 3.79688rem;
+      margin-left: 0px;
+      display: grid;
+      grid-template-columns: 100vw;
+      grid-template-rows: auto auto; }
+      .parent .content .text {
+        grid-column: 1;
+        grid-row: 2;
+        margin-left: 1.4rem;
+        margin-right: 1.4rem; }
+      .parent .content .logo {
+        text-align: center;
+        grid-column: 1;
+        grid-row: 1;
+        padding-top: 0.55rem;
+        margin-bottom: 2.8rem; }
+        .parent .content .logo img {
+          width: 5.69531rem; }
+      .parent .content .ctas {
+        width: 100%;
+        margin-top: 2.8rem; }
+      .parent .content a:nth-child(1), .parent .content a:nth-child(2) {
+        display: block;
+        cursor: pointer; }
+      .parent .content a:nth-child(1) {
+        text-decoration: none;
+        text-align: center;
+        color: #fff;
+        background: linear-gradient(135deg, HSL(314, 50%, 55%) 0, HSL(314, 99%, 25%) 100%);
+        border: none;
+        border-radius: 10px;
+        height: 1.6875rem;
+        line-height: 1.6875rem;
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-appearance: none;
+        width: 8.54297rem;
+        padding: 10px 0 16px;
+        text-decoration: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        margin-bottom: 1.6875rem;
+        margin-bottom: 3.79688rem; }
+      .parent .content a:nth-child(2) {
+        margin-left: 1.125rem;
+        text-decoration: none;
+        text-align: center;
+        color: HSL(314, 99%, 25%);
+        background: none;
+        border: HSL(314, 99%, 25%) 2px solid;
+        border-radius: 10px;
+        height: 1.6875rem;
+        line-height: 1.6875rem;
+        font-weight: 500;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-appearance: none;
+        min-width: 8.54297rem;
+        width: auto;
+        padding: 10px 0 16px;
+        text-decoration: none;
+        display: none; }
+      .parent .content a:nth-child(1):active {
+        box-shadow: none; }
+      .parent .content a:nth-child(2):active {
+        background-color: HSL(314, 99%, 25%);
+        color: #fff; } }
+
+@media screen and (min-width: 100em) {
+  .parent .content {
+    margin-top: 11.2rem;
+    margin-left: 11.2rem; } }
+
+/*# sourceMappingURL=styles.css.map */

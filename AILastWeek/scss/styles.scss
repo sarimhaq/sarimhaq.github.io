@@ -1,0 +1,344 @@
+/*Variable and Mixins*/
+
+$phablet-breakpoint: 1000px;
+$tablet-breakpoint: 48em;
+$desktop-breakpoint: 64em;
+$large-desktop-breakpoint: 100em;
+
+$font-roboto-cond: 'Roboto Condensed', sans-serif;
+$font-roboto: 'Roboto', sans-serif;
+
+$pink: HSL(314, 99%, 25%);
+$light-pink: HSL(314, 50%, 55%);
+$green: HSL(133, 91%, 45%);
+$grey-1: HSL(209, 15%, 28%);
+$grey-2: HSL(207, 12%, 43%);
+
+
+
+$base-font-size: 112.5; 
+$line-height: 1.4;
+$base: ($base-font-size / 100);
+
+$ratio: 1.5;
+
+/* pow and ms functions */
+@function pow($number, $exponent) {
+  $value: 1; 
+
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent { 
+      $value: $value * $number; 
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number; 
+    }
+  }
+
+  @return $value;
+}
+
+@function ms($value, $ms-ratio: $ratio, $ms-base: $base){
+  $size: pow($ms-ratio, $value) * $ms-base;
+  @return #{ $size + "rem" };
+}
+
+/*Vertical rhythm mixins*/
+@mixin line-height($number) {
+  line-height: #{ $number * $line-height + 'rem'};
+}
+
+@mixin margin-top($number) {
+  margin-top: #{ $number * $line-height + 'rem'};
+}
+
+@mixin margin-bottom($number) {
+  margin-bottom: #{ $number * $line-height + 'rem'};
+}
+
+@mixin margin-left($number) {
+  margin-left: #{ $number * $line-height + 'rem'};
+}
+
+
+@mixin margin-right($number) {
+  margin-right: #{ $number * $line-height + 'rem'};
+}
+
+
+html {
+  font-size: 100%; 
+  background-image: url(../images/background-2.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 650 0;
+  
+  @media screen and (min-width: $tablet-breakpoint){
+    font-size: #{$base-font-size + '%'}; 
+  }
+  font-family: $font-roboto;
+  color: #333;
+}
+
+body {
+    margin: 0px;
+}
+
+h1{
+    font-family: $font-roboto-cond;
+    font-size: ms(3);
+    @include margin-top(0);
+    @include margin-bottom(1);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: $pink;
+}
+
+h2{
+    font-size: ms(0);
+    @include margin-top(0);
+    @include margin-bottom(0);
+    line-height: $line-height;
+    color: $grey-1;
+    font-weight: 500;
+}
+
+p {
+    font-weight: 400;
+    color: $grey-2;
+    line-height: $line-height;
+    text-indent: -0.5em;
+}
+
+   .mobile-bg{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        bottom: 0;
+        height: ms(4);
+        background-image: url(../images/mobile-bg.svg);
+        background-size: cover;
+        display: none;
+    }
+
+.parent{
+    height: auto;
+    width: auto;
+    
+    .pink-stripe{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        position: fixed;
+        top: 0;
+        height: ms(1);
+        background-color: $pink;
+    }
+    
+    .content {
+        @include margin-top(4);
+        @include margin-left(4);
+        display: grid;
+        grid-template-columns: ms(4) 28rem;
+        grid-template-rows: auto;
+        
+        .text{
+            grid-column: 2;
+            grid-row: 1;
+            @include margin-left(1);
+        }
+        .logo{
+            grid-column: 1;
+            grid-row: 1;
+            padding-top: 0.55rem;
+            img {
+                width: ms(4);
+            }
+        }
+        .ctas{
+            width: 100%;
+            @include margin-top(2);
+            
+        }
+        a:nth-child(1), a:nth-child(2) {
+            display: inline-block;
+            cursor: pointer;
+        } 
+        a:nth-child(1) {
+            text-decoration: none;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg,$light-pink 0,$pink 100%);
+            border: none;
+            border-radius: 10px;
+            height: ms(1);
+            line-height: ms(1);
+            font-weight: 500;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-appearance: none;
+            width: ms(5);
+            padding: 10px 0 16px;
+            text-decoration: none;
+            box-shadow: 0 2px 6px hsla(0, 0%, 0%, .2);
+        }
+        
+        a:nth-child(2) {
+            margin-left: ms(0);
+            text-decoration: none;
+            text-align: center;
+            color: $pink;
+            background: none;
+            border: $pink 2px solid;
+            border-radius: 10px;
+            height: ms(1);
+            line-height: ms(1);
+            font-weight: 500;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-appearance: none;
+            min-width: ms(5);
+            width: auto;
+            padding: 10px 0 16px;
+            text-decoration: none;
+        }
+        
+        a:nth-child(1):active{
+            box-shadow:none;
+        }
+        a:nth-child(2):active{
+            background-color: $pink;
+            color: #fff;
+        }
+    }
+    
+    
+    
+}
+
+
+@media screen and (max-width:1000px){
+    html {
+        background: none;
+    }
+    h1{
+    font-family: $font-roboto-cond;
+    font-size: 12vw;
+    @include margin-top(0);
+    @include margin-bottom(1);
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: $pink;
+}
+    .mobile-bg{display: block;}
+.parent{
+    height: auto;
+    width: auto;
+    
+    .pink-stripe{
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        position: fixed;
+        top: 0;
+        height: ms(1);
+        background-color: $pink;
+    }
+    
+    .content {
+        margin-top: ms(3);
+        margin-left: 0px;
+        display: grid;
+        grid-template-columns: 100vw;
+        grid-template-rows: auto auto;
+        
+        .text{
+            grid-column: 1;
+            grid-row: 2;
+            @include margin-left(1);
+             @include margin-right(1);
+            
+        }
+        .logo{
+            text-align: center;
+            grid-column: 1;
+            grid-row: 1;
+            padding-top: 0.55rem;
+            img {
+                width: ms(4);
+            }
+            @include margin-bottom(2);
+        }
+        .ctas{
+            width: 100%;
+            @include margin-top(2);
+            
+        }
+        a:nth-child(1), a:nth-child(2) {
+            display: block;
+            cursor: pointer;
+        } 
+        a:nth-child(1) {
+            text-decoration: none;
+            text-align: center;
+            color: #fff;
+            background: linear-gradient(135deg,$light-pink 0,$pink 100%);
+            border: none;
+            border-radius: 10px;
+            height: ms(1);
+            line-height: ms(1);
+            font-weight: 500;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-appearance: none;
+            width: ms(5);
+            padding: 10px 0 16px;
+            text-decoration: none;
+            box-shadow: 0 2px 6px hsla(0, 0%, 0%, .2);
+            margin-bottom: ms(1);
+            margin-bottom: ms(3);
+        }
+        
+        a:nth-child(2) {
+            margin-left: ms(0);
+            text-decoration: none;
+            text-align: center;
+            color: $pink;
+            background: none;
+            border: $pink 2px solid;
+            border-radius: 10px;
+            height: ms(1);
+            line-height: ms(1);
+            font-weight: 500;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-appearance: none;
+            min-width: ms(5);
+            width: auto;
+            padding: 10px 0 16px;
+            text-decoration: none;
+            display: none;
+        }
+        
+        a:nth-child(1):active{
+            box-shadow:none;
+        }
+        a:nth-child(2):active{
+            background-color: $pink;
+            color: #fff;
+        }
+    }
+    }
+}
+
+
+ @media screen and (min-width:$large-desktop-breakpoint){
+     .parent {
+         .content {
+            @include margin-top(8);
+             @include margin-left(8);
+         }
+     }
+  }
+

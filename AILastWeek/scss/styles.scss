@@ -116,13 +116,13 @@ p {
     text-indent: -0.5em;
 }
 
-   .mobile-bg{
+.mobile-bg{
         width: 100%;
         margin: 0px;
         padding: 0px;
         bottom: 0;
         height: ms(4);
-        background-image: url(../images/mobile-bg.svg);
+        background-image: url(../images/cover.png);
         background-size: cover;
         display: none;
     }
@@ -236,6 +236,11 @@ p {
     letter-spacing: -0.025em;
     line-height: 1.1;
     color: $pink;
+       span {
+        background: white; 
+        -webkit-background-clip: none;
+        -webkit-text-fill-color: $pink;
+    }
 }
     .mobile-bg{display: block;}
 .parent{
@@ -248,7 +253,7 @@ p {
         padding: 0px;
         position: fixed;
         top: 0;
-        height: ms(1);
+        height: ms(-1);
         background-color: $pink;
     }
     

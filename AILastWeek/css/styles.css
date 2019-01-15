@@ -24,6 +24,10 @@ h1 {
   letter-spacing: -0.025em;
   line-height: 1.1;
   color: HSL(314, 99%, 25%); }
+  h1 span {
+    background: -webkit-linear-gradient(90deg, HSL(314, 50%, 55%) 0%, HSL(314, 99%, 25%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; }
 
 h2 {
   font-size: 1.125rem;
@@ -58,7 +62,7 @@ p {
     padding: 0px;
     position: fixed;
     top: 0;
-    height: 1.6875rem;
+    height: 0.75rem;
     background-color: HSL(314, 99%, 25%); }
   .parent .content {
     margin-top: 5.6rem;
@@ -75,7 +79,8 @@ p {
       grid-row: 1;
       padding-top: 0.55rem; }
       .parent .content .logo img {
-        width: 5.69531rem; }
+        width: 5.69531rem;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); }
     .parent .content .ctas {
       width: 100%;
       margin-top: 2.8rem; }

@@ -93,6 +93,11 @@ h1{
     letter-spacing: -0.025em;
     line-height: 1.1;
     color: $pink;
+    span {
+        background: -webkit-linear-gradient(90deg, $light-pink 0%, $pink 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
 h2{
@@ -132,7 +137,7 @@ p {
         padding: 0px;
         position: fixed;
         top: 0;
-        height: ms(1);
+        height: ms(-1);
         background-color: $pink;
     }
     
@@ -154,6 +159,7 @@ p {
             padding-top: 0.55rem;
             img {
                 width: ms(4);
+                box-shadow: 0 2px 6px hsla(0, 0%, 0%, .2);
             }
         }
         .ctas{

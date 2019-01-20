@@ -17,7 +17,7 @@ $grey-2: HSL(207, 12%, 43%);
 
 
 $base-font-size: 112.5; 
-$line-height: 1.4;
+$line-height: 1.45;
 $base: ($base-font-size / 100);
 
 $ratio: 1.5;
@@ -91,7 +91,7 @@ h1{
     @include margin-top(0);
     @include margin-bottom(1);
     letter-spacing: -0.025em;
-    line-height: 1.1;
+    line-height: 1;
     color: $pink;
     span {
         background: -webkit-linear-gradient(90deg, $light-pink 0%, $pink 100%);

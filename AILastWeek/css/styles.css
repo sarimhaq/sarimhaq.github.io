@@ -20,9 +20,9 @@ h1 {
   font-family: "Roboto Condensed", sans-serif;
   font-size: 3.79688rem;
   margin-top: 0rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.45rem;
   letter-spacing: -0.025em;
-  line-height: 1.1;
+  line-height: 1;
   color: HSL(314, 99%, 25%); }
   h1 span {
     background: -webkit-linear-gradient(90deg, HSL(314, 50%, 55%) 0%, HSL(314, 99%, 25%) 100%);
@@ -33,14 +33,14 @@ h2 {
   font-size: 1.125rem;
   margin-top: 0rem;
   margin-bottom: 0rem;
-  line-height: 1.4;
+  line-height: 1.45;
   color: HSL(209, 15%, 28%);
   font-weight: 500; }
 
 p {
   font-weight: 400;
   color: HSL(207, 12%, 43%);
-  line-height: 1.4;
+  line-height: 1.45;
   text-indent: -0.5em; }
 
 .mobile-bg {
@@ -65,15 +65,15 @@ p {
     height: 0.75rem;
     background-color: HSL(314, 99%, 25%); }
   .parent .content {
-    margin-top: 5.6rem;
-    margin-left: 5.6rem;
+    margin-top: 5.8rem;
+    margin-left: 5.8rem;
     display: grid;
     grid-template-columns: 5.69531rem 28rem;
     grid-template-rows: auto; }
     .parent .content .text {
       grid-column: 2;
       grid-row: 1;
-      margin-left: 1.4rem; }
+      margin-left: 1.45rem; }
     .parent .content .logo {
       grid-column: 1;
       grid-row: 1;
@@ -83,7 +83,7 @@ p {
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); }
     .parent .content .ctas {
       width: 100%;
-      margin-top: 2.8rem; }
+      margin-top: 2.9rem; }
     .parent .content a:nth-child(1), .parent .content a:nth-child(2) {
       display: inline-block;
       cursor: pointer; }
@@ -135,7 +135,7 @@ p {
     font-family: "Roboto Condensed", sans-serif;
     font-size: 12vw;
     margin-top: 0rem;
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.45rem;
     letter-spacing: -0.025em;
     line-height: 1.1;
     color: HSL(314, 99%, 25%); }
@@ -165,19 +165,19 @@ p {
       .parent .content .text {
         grid-column: 1;
         grid-row: 2;
-        margin-left: 1.4rem;
-        margin-right: 1.4rem; }
+        margin-left: 1.45rem;
+        margin-right: 1.45rem; }
       .parent .content .logo {
         text-align: center;
         grid-column: 1;
         grid-row: 1;
         padding-top: 0.55rem;
-        margin-bottom: 2.8rem; }
+        margin-bottom: 2.9rem; }
         .parent .content .logo img {
           width: 5.69531rem; }
       .parent .content .ctas {
         width: 100%;
-        margin-top: 2.8rem; }
+        margin-top: 2.9rem; }
       .parent .content a:nth-child(1), .parent .content a:nth-child(2) {
         display: block;
         cursor: pointer; }
@@ -227,7 +227,7 @@ p {
 
 @media screen and (min-width: 100em) {
   .parent .content {
-    margin-top: 11.2rem;
-    margin-left: 11.2rem; } }
+    margin-top: 11.6rem;
+    margin-left: 11.6rem; } }
 
 /*# sourceMappingURL=styles.css.map */

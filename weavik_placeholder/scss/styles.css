@@ -1,0 +1,267 @@
+/* line 4, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.allsmallcaps {
+  font-feature-settings: "c2sc", "smcp"; }
+
+/* line 75, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+html {
+  font-size: 100%;
+  font-family: "ff-meta-serif-web-pro", Georgia, serif;
+  color: #333; }
+  @media screen and (min-width: 48em) {
+    /* line 75, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    html {
+      font-size: 112.5%; } }
+
+/* line 86, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+* {
+  line-height: 1.45rem;
+  margin-bottom: 1.45rem;
+  margin-top: 0rem; }
+
+/* line 104, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+h1 {
+  font-size: 1.6875rem;
+  line-height: 2.175rem;
+  margin-top: 1.45rem;
+  margin-bottom: 1.45rem; }
+
+/* line 104, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+h2 {
+  font-size: 1.6875rem;
+  line-height: 2.175rem;
+  margin-top: 2.9rem;
+  margin-bottom: 0.725rem; }
+
+/* line 104, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+h3 {
+  font-size: 1.125rem;
+  line-height: 2.175rem;
+  margin-top: 2.9rem;
+  margin-bottom: 0.725rem; }
+
+/* line 104, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+h4 {
+  font-size: 1.125rem;
+  line-height: 1.45rem;
+  margin-top: 0.3625rem;
+  margin-bottom: 0rem; }
+
+/* line 104, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+h5 {
+  font-size: 1.125rem;
+  line-height: 1.45rem;
+  margin-top: 0.725rem;
+  margin-bottom: 0rem; }
+
+/* line 104, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+h6 {
+  font-size: 1.125rem;
+  line-height: 1.45rem;
+  margin-top: 0.725rem;
+  margin-bottom: 0rem; }
+
+/* line 112, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "korolev", sans-serif;
+  font-weight: 500; }
+
+/* line 117, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.main-body {
+  width: 87.5%;
+  margin-left: 12.5%; }
+  @media screen and (min-width: 64em) {
+    /* line 117, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    .main-body {
+      width: 56.25%;
+      margin-left: 12.5%;
+      float: left; } }
+
+/* line 128, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.post-meta {
+  color: #999; }
+  /* line 131, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  .post-meta a {
+    color: #999;
+    text-decoration: underline; }
+
+/* line 137, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.sidebar {
+  width: 81.25%;
+  margin-left: 12.5%; }
+  @media screen and (min-width: 64em) {
+    /* line 137, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    .sidebar {
+      width: 18.75%;
+      margin-top: 2.9rem;
+      margin-left: 6.25%;
+      float: left; } }
+  /* line 148, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  .sidebar h1 {
+    text-transform: uppercase;
+    font-size: 1.125rem;
+    margin-top: 2.9rem;
+    margin-bottom: 0rem; }
+  /* line 155, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  .sidebar ul {
+    list-style: none;
+    padding: 0; }
+  /* line 160, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  .sidebar a {
+    font-family: "korolev", sans-serif;
+    display: block;
+    margin-bottom: 0rem; }
+  /* line 166, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  .sidebar .carbon {
+    max-width: 265px; }
+
+/* line 171, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+header {
+  margin-top: 2.9rem;
+  margin-bottom: 1.45rem;
+  font-family: "korolev", sans-serif; }
+  /* line 176, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  header:after {
+    content: "";
+    display: table;
+    clear: both; }
+  @media screen and (min-width: 48em) {
+    /* line 171, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    header {
+      margin-bottom: 0; } }
+
+/* line 187, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.mobile-nav {
+  float: right;
+  margin-right: 10%; }
+  /* line 191, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  .mobile-nav svg {
+    margin-bottom: 0;
+    margin-right: 10px;
+    fill: #F7412D; }
+  @media screen and (min-width: 48em) {
+    /* line 187, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    .mobile-nav {
+      display: none; } }
+
+/* line 202, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.main-nav {
+  display: none; }
+  @media screen and (min-width: 48em) {
+    /* line 202, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    .main-nav {
+      display: inline-block; } }
+  /* line 209, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  .main-nav ul {
+    list-style: none;
+    margin-bottom: 0; }
+  /* line 214, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  .main-nav li {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 0; }
+
+/* line 221, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.logo-wrap {
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  display: inline;
+  float: left;
+  margin-right: 40px;
+  margin-bottom: 0; }
+  /* line 229, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  .logo-wrap img {
+    margin-bottom: 0; }
+
+/* line 234, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.logo {
+  max-width: 48px;
+  float: left; }
+
+/* line 239, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+small, figcaption {
+  font-size: 0.75rem; }
+
+/* line 243, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.big-quote {
+  font-family: "korolev", sans-serif;
+  font-size: 1.125rem;
+  max-width: 90%;
+  font-weight: 300;
+  font-style: italic;
+  margin-left: 0;
+  line-height: 1.45rem;
+  text-indent: -0.4em; }
+  @media screen and (min-width: 37em) {
+    /* line 243, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    .big-quote {
+      float: right;
+      max-width: 10em;
+      margin-left: 2em;
+      margin-bottom: 0.725rem; } }
+  @media screen and (min-width: 80em) {
+    /* line 243, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    .big-quote {
+      font-size: 1.6875rem;
+      line-height: 2.175rem; } }
+
+/* line 268, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+article h1 {
+  font-style: normal;
+  margin-left: -6.25%;
+  max-width: 100%; }
+  @media screen and (min-width: 37em) {
+    /* line 268, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    article h1 {
+      font-size: 2.53125rem;
+      line-height: 2.9rem; } }
+  @media screen and (min-width: 48em) {
+    /* line 268, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    article h1 {
+      font-size: 3.79688rem;
+      line-height: 4.35rem;
+      max-width: 95%; } }
+  @media screen and (min-width: 64em) {
+    /* line 268, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    article h1 {
+      margin-left: -12.5%;
+      max-width: 13em; } }
+
+/* line 288, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+article p {
+  max-width: 90%; }
+  @media screen and (min-width: 48em) {
+    /* line 288, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+    article p {
+      max-width: 33em; } }
+
+/* line 296, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+article img {
+  max-width: 100%; }
+
+/* line 301, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+a {
+  color: #F7412D;
+  text-decoration: none; }
+  /* line 305, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  a:hover {
+    color: #f96d5e; }
+  /* line 309, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+  a:active {
+    color: #fb9a8f; }
+
+/* line 314, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.twitter-link {
+  font-family: "korolev", sans-serif; }
+
+/* line 319, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.grid, .double-grid {
+  background-image: linear-gradient(to bottom, rgba(0, 170, 255, 0.3) 1px, transparent 1px);
+  background-repeat: repeat;
+  background-position: left top;
+  background-size: 100% 26.1px; }
+
+/* line 326, /Users/sarimhaque/Desktop/random/weavik/place_holder_page/scss/styles.scss */
+.double-grid {
+  background-image: linear-gradient(to bottom, rgba(0, 170, 255, 0.3) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 170, 255, 0.3) 1px, transparent 1px, transparent 13.05px, rgba(0, 170, 255, 0.2) 13.05px, transparent 14.05px, transparent 26.1px); }
+
+/*# sourceMappingURL=styles.css.map */

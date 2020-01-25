@@ -1,0 +1,237 @@
+// >>>>>Website Defaults<<<<<<
+
+// Enable small caps
+.allsmallcaps {
+  font-feature-settings: "c2sc", "smcp"; 
+ }
+
+// Fonts
+$font-source: 'Source Sans Pro', sans-serif;
+$font-playfair: 'Playfair Display', serif;
+
+// Colours
+$primary-1: #1946d9;
+$primary-2: #1740c5;
+$primary-3: #153AB3;
+$primary-4: #1334a1;
+$primary-5: #112f91;
+
+$sec-1: #00b5a5;
+$sec-2: #00a596;
+$sec-3: #009688;
+$sec-4: #00877a;
+$sec-5: #007a6e;
+
+$grey-1: #b8c2cc;
+$grey-2: #606f7b;
+$grey-3: #6f7a84;
+$grey-4: #3d4852;
+$grey-5: #333;
+
+$bg-color: #fff;
+
+// Variables
+$base-font-size: 112.5; // Gets used as %, converts to 18px
+$line-height: 1.45;
+$base: ($base-font-size / 100); // We'll need this for some calculations
+
+// Modular scale
+$ratio: 1.333; // Perfect Fifth
+
+// pow and ms functions 
+@function pow($number, $exponent) {
+  $value: 1;
+  @if $exponent > 0 {
+    @for $i from 1 through $exponent {
+      $value: $value * $number; //Multiply by $number if exponent less than zero
+    }
+  } @else if $exponent < 0 {
+    @for $i from 1 through -$exponent {
+      $value: $value / $number; //Divide by $number if exponent less than zero
+    }
+  }
+  @return $value;
+}
+
+@function ms($value, $ms-ratio: $ratio, $ms-base: $base){
+  $size: pow($ms-ratio, $value) * $ms-base;
+  @return #{ $size + "rem" };
+}
+
+// Vertical rhythm mixins
+@mixin line-height($number) {
+  line-height: #{ $number * $line-height + 'rem'};
+}
+
+@mixin margin-top($number) {
+  margin-top: #{ $number * $line-height + 'rem'};
+}
+
+@mixin margin-bottom($number) {
+  margin-bottom: #{ $number * $line-height + 'rem'};
+}
+
+//horizontal rythm mixins
+@mixin section($number){
+    display: grid;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    height: ms($number);
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+
+
+html {
+  font-size: 112.5%; 
+  font-family: $font-source;
+  color: $grey-5;
+  background-color: $bg-color;
+}
+
+// Set line-height and margins for all elements
+* {
+  line-height: 1.45
+}
+
+body {
+    margin: 0px;
+}
+
+.button {
+    height: ms(3);
+    background-color: $primary-5;
+    position: relative;
+    padding-right: ms(1);
+    padding-left: ms(1);
+    width: ms(7);
+    line-height: ms(3);
+    text-align: center;
+    color: $bg-color;
+    padding-top: ms(-8);
+    padding-bottom: ms(-8);
+    text-transform: uppercase;
+    font-size: ms(-1);
+    letter-spacing: ms(-10);
+    font-weight: 600;
+    margin-top: ms(2);
+}
+
+.button:before {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    border-bottom: ms(-2) solid $bg-color;
+    border-left: ms(-2) solid $primary-5;
+    width: 0;
+}
+
+// [ h1: font-size: [x value from scale], line-height: 2 * 30px, margin-top: 2 * 30px, margin-bottom: 1 * 30px ]
+$headings: (
+  h1: (4, 1.1, 0, 1, 700),
+  h2: (3, 1.45, 0, 1, 700),
+  h3: (2, 1.45, 0, 1, 700),
+  h4: (1, 1.45, 0, 0.5, 600),
+  h5: (0, 1.45, 0, 0.5, 600)
+); 
+
+// Set line-heights and margins for headings
+@each $heading, $properties in $headings {
+  #{$heading} {
+    font-size: ms(nth($properties, 1));
+    line-height: nth($properties, 2);
+    @include margin-top(nth($properties, 3));
+    @include margin-bottom(nth($properties, 4));
+    font-weight: nth($properties, 5)
+  }
+}
+
+h1, h2, h3, h4, h5{
+  font-family: $font-playfair;
+}
+
+h5{
+    text-transform: uppercase;
+    letter-spacing: ms(-8);
+}
+
+
+// >>>>>Header Section<<<<<<
+
+.header-section{
+    position: relative;
+    @include section(0);
+    height: 100vh;
+    .top-bar {
+        height: ms(-5);
+        background-color: $primary-3;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+    .content {
+        grid-column: 1/5;
+        grid-row: 1;
+        margin-right: ms(0);
+        img {
+            width: ms(3);
+            margin-top: ms(2);
+        }
+        h5 {
+            margin-top: ms(3);
+            color: $grey-4;
+        }
+        h1 {
+            span {
+                color: $primary-3;
+                line-height: 1.1;
+            }
+        }
+        p {
+            font-size: ms(0);
+            margin-right: ms(4);
+            margin-top: ms(2);
+            font-weight: 400;
+            color: $grey-3;
+        }
+    }
+    .image-intro{
+        grid-column: 5/9;
+        display: grid;
+        grid-template-columns: 0.33fr 0.33fr 0.33fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        .bg-img{
+            grid-column: 1/4;
+            grid-row: 2/4;
+            margin-right: -10.5vw;
+            background-image: url(../images/bg-img.png);
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            background-size: contain; 
+        }
+        .intro{
+            grid-column: 3/4;
+            grid-row: 1/2;
+            text-align: right;
+            align-self: end;
+            border-right: ms(-6) solid $sec-2;
+            padding-right: ms(-3);
+            margin-left: - ms(-3);
+            font-weight: 600;
+            color: $grey-4;
+            span {
+                color: $sec-3;
+            }
+        }
+    }
+    .made-in{
+        position: absolute;
+        bottom: ms(-7);
+        left: 10vw;
+        font-size: ms(-1);
+        font-weight: 600;
+    }
+}
+
+

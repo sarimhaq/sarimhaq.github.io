@@ -162,7 +162,8 @@ h5{
 .header-section{
     position: relative;
     @include section(0);
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     .top-bar {
         height: ms(-5);
         background-color: $primary-3;
@@ -194,6 +195,9 @@ h5{
             margin-top: ms(2);
             font-weight: 400;
             color: $grey-3;
+        }
+        .button {
+            margin-bottom: ms(5);
         }
     }
     .image-intro{

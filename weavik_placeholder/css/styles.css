@@ -90,7 +90,8 @@ h5 {
   height: 1.125rem;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
-  height: 100vh; }
+  height: auto;
+  min-height: 100vh; }
   .header-section .top-bar {
     height: 0.2673rem;
     background-color: #153AB3;
@@ -116,6 +117,8 @@ h5 {
       margin-top: 1.999rem;
       font-weight: 400;
       color: #6f7a84; }
+    .header-section .content .button {
+      margin-bottom: 4.73482rem; }
   .header-section .image-intro {
     grid-column: 5/9;
     display: grid;

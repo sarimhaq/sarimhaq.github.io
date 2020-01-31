@@ -33,7 +33,7 @@ $bg-color: #fff;
 // Variables
 $base-font-size: 112.5; // Gets used as %, converts to 18px
 $line-height: 1.45;
-$base: ($base-font-size / 100); // We'll need this for some calculations
+$base: ($base-font-size / 100); 
 
 // Modular scale
 $ratio: 1.333; // Perfect Fifth
@@ -90,7 +90,7 @@ html {
   background-color: $bg-color;
 }
 
-// Set line-height and margins for all elements
+
 * {
   line-height: 1.45
 }
@@ -126,7 +126,6 @@ body {
     width: 0;
 }
 
-// [ h1: font-size: [x value from scale], line-height: 2 * 30px, margin-top: 2 * 30px, margin-bottom: 1 * 30px ]
 $headings: (
   h1: (4, 1.1, 0, 1, 700),
   h2: (3, 1.45, 0, 1, 700),
@@ -146,7 +145,7 @@ $headings: (
   }
 }
 
-h1, h2, h3, h4, h5{
+h1, h2, h3, h4{
   font-family: $font-playfair;
 }
 
@@ -193,7 +192,7 @@ h5{
             margin-right: ms(4);
             margin-top: ms(2);
             font-weight: 400;
-            color: $grey-3;
+            color: $grey-4;
             line-height: 1.5;
             span {
                 font-weight: 600;
@@ -221,7 +220,7 @@ h5{
             grid-column: 1/4;
             grid-row: 2/4;
             margin-right: -10.5vw;
-            background-image: url(../images/bg-img.png);
+            background-image: url(../images/bg-img-2.png);
             background-position: bottom right;
             background-repeat: no-repeat;
             background-size: contain; 
@@ -249,5 +248,52 @@ h5{
         font-weight: 600;
     }
 }
+
+@media only screen and (max-width: 1000px) {
+    h1 {
+        font-size: 10vw;
+    }
+    .header-section{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        .content {
+            grid-column: 1;
+            grid-row: 1;
+            margin-right: 0px;
+            p {
+                margin-right: 0px;
+            }
+            .button {
+                margin-top: ms(4);
+            }
+            
+        }
+        .image-intro{
+            grid-column: 1;
+            grid-template-rows: auto auto;
+            grid-template-columns: 1fr;
+            .bg-img{
+                grid-row: 2;
+                grid-column: 1;
+                margin-right: 0px;
+                min-height: ms(9);
+                background-position: top center;
+            }
+            .intro {
+                grid-row: 1;
+                grid-column: 1;
+            }
+        }
+        .made-in {
+            position: relative;
+            text-align: center;
+            margin-top: ms(2);
+            left: auto;
+            margin-bottom: ms(-1);
+        }
+    }
+    
+}
+
 
 

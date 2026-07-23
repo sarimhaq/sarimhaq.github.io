@@ -1,0 +1,255 @@
+/* Clean dark blog theme — inspired by OPL-style navy + cream type */
+:root {
+  --bg: #0b1c2c;
+  --bg-elevated: #122636;
+  --text: #f3efe6;
+  --text-muted: #b8b0a0;
+  --accent: #e8dfc8;
+  --border: rgba(243, 239, 230, 0.12);
+  --link: #e8dfc8;
+  --max: 42rem;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-serif);
+  line-height: 1.65;
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  opacity: 0.85;
+}
+
+.wrap {
+  width: min(100% - 2.5rem, var(--max));
+  margin: 0 auto;
+  padding: 2.5rem 0 4rem;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.25rem;
+}
+
+.site-header .brand {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.site-header nav {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 1.25rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+
+.site-header nav a {
+  text-decoration: none;
+  color: var(--text);
+}
+
+.site-header nav a:hover {
+  color: var(--accent);
+}
+
+h1 {
+  font-weight: 500;
+  font-size: clamp(1.85rem, 4vw, 2.4rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
+  color: var(--accent);
+}
+
+h2 {
+  font-weight: 500;
+  font-size: 1.35rem;
+  margin: 2.5rem 0 1rem;
+  color: var(--accent);
+}
+
+.lede,
+.meta {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.lede {
+  font-size: 1.05rem;
+  margin: 0 0 2rem;
+  max-width: 36rem;
+}
+
+.about p {
+  margin: 0 0 1rem;
+}
+
+.about p:last-child {
+  margin-bottom: 0;
+}
+
+.roles {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.roles li {
+  margin-bottom: 0.35rem;
+}
+
+.roles li::before {
+  content: "— ";
+  color: var(--border);
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+}
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.post-list li {
+  border-bottom: 1px solid var(--border);
+}
+
+.post-list a {
+  display: block;
+  padding: 1.15rem 0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.post-list a:hover .post-title {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.post-title {
+  font-size: 1.15rem;
+  color: var(--accent);
+  margin: 0 0 0.35rem;
+}
+
+.post-date {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.site-footer {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.site-footer a {
+  color: var(--text-muted);
+}
+
+/* Article page */
+.article-header {
+  margin-bottom: 2rem;
+}
+
+.article-header .meta {
+  margin-bottom: 1rem;
+}
+
+.cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 2rem;
+  border-radius: 2px;
+}
+
+.article-body p {
+  margin: 0 0 1.15rem;
+}
+
+.article-body ul {
+  margin: 0 0 1.15rem;
+  padding-left: 1.25rem;
+}
+
+.article-body li {
+  margin-bottom: 0.4rem;
+}
+
+.article-body figure {
+  margin: 1.75rem 0;
+}
+
+.article-body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2px;
+}
+
+.article-body figcaption {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+}
+
+.back-link {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.back-link:hover {
+  color: var(--accent);
+}

@@ -51,8 +51,8 @@ a:hover {
 .site-header {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   gap: 1rem 1.5rem;
   margin-bottom: 3.5rem;
   padding-bottom: 1.1rem;
@@ -60,29 +60,21 @@ a:hover {
 }
 
 .site-header .brand {
-  font-family: var(--font);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text);
-  border: none;
-}
-
-.site-header .brand:hover {
-  color: var(--accent);
-  border: none;
+  display: none;
 }
 
 .site-header nav {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.35rem 1.25rem;
   font-family: var(--font);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  width: 100%;
+  text-align: center;
 }
 
 .site-header nav a {
@@ -420,6 +412,11 @@ h2 {
 
   .site-header {
     margin-bottom: 2.5rem;
+  }
+
+  .site-header nav {
+    gap: 0.35rem 0.9rem;
+    font-size: 0.68rem;
   }
 
   .home-hero h1 {

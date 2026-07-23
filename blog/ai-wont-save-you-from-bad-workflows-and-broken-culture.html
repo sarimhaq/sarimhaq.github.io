@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Won’t Save You From Bad Workflows and Broken Culture — Sarim Haque</title>
+  <meta name="description" content="Why most AI pilots fail, and a checklist for AI projects that actually work.">
+  <link rel="stylesheet" href="../blog-style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/#writing">Writing</a>
+        <a href="https://superawesomelab.com/" rel="noopener">Super Awesome Lab</a>
+        <a href="https://www.linkedin.com/in/sarimhaque/" rel="noopener">LinkedIn</a>
+      </nav>
+    </header>
+    <main>
+      <a class="back-link" href="/#writing">← All writing</a>
+      <article>
+        <header class="article-header">
+          <p class="meta">August 31, 2025 · Originally on <a href="https://www.linkedin.com/pulse/ai-wont-save-you-from-bad-workflows-broken-culture-sarim-haque-6j3gc" rel="noopener">LinkedIn</a></p>
+          <h1>AI Won’t Save You From Bad Workflows and Broken Culture</h1>
+        </header>
+        <img class="cover" src="https://media.licdn.com/dms/image/v2/D5612AQE8Su9UFZtJCw/article-cover_image-shrink_720_1280/B56ZkBR2R2HIAI-/0/1756663080898?e=1786579200&amp;v=beta&amp;t=snk2ROeahW01_q3CM-WEYnenhqWB_iNtu05mYnh-0Mk" alt="Made by a human" loading="eager">
+        <div class="article-body">
+          <p>Recently, MIT’s paper titled “State of AI in Business" caused a lot of stir in the industry. The paper made a critical claim: nearly 95% of AI pilots fail to yield any measurable results. For those of us implementing AI across various business workflows, the revelation that most AI projects fail isn’t surprising. However, the magnitude of failure was unexpected.</p>
+          <p>The paper identified the following reasons, ordered by their popularity, for why GenAI pilots are unsuccessful:</p>
+          <ul>
+            <li>Unwilling to adopt new tools.</li>
+            <li>Model output quality concerns.</li>
+            <li>Poor user experience.</li>
+            <li>Lack of executive sponsorship.</li>
+            <li>Challenging change management.</li>
+          </ul>
+          <p>Thinking from first principles, reasons 1, 4, and 5 can be safely attributed to your team’s culture. However, if you were to dig into reasons 2 and 3, i.e., model concerns and poor UX, you’ll soon realize that those two are also tied to your team’s culture. A lack of curiosity and an overreliance on external consultants will inevitably result in a poor choice of tools and underwhelming results.</p>
+          <p>Let me take a quick detour here to give you an idea of where I’m coming from. As a marketer with an engineering background, I’ve been building machine learning-powered apps since 2016. That puts me in a unique position to:</p>
+          <ul>
+            <li>Understand business problems from an operator’s POV.</li>
+            <li>Gain a comprehensive understanding of existing GenAI tools.</li>
+            <li>Develop end-to-end solutions using state-of-the-art technology.</li>
+          </ul>
+          <p>Now that you have an understanding of my perspective, let me share two possible approaches to run an AI pilot. After comparing and contrasting those approaches, I’ll give you a checklist to follow to increase your chances of success with an AI pilot project.</p>
+          <p>Here’s the scene: for a paid social campaign, we wanted to generate multiple variations of ad copy. Given the large number of ads, we deemed it efficient to leverage GenAI to create the required copy. Our copywriters would then review and approve or disapprove the generated ads, reducing their workload and the overall turnaround time.</p>
+          <p>Now I’ll discuss two possible approaches to leverage GenAI to achieve the above goal. The first approach was what we used. The second one is what I feel is more prevalent in large organizations.</p>
+          <h2>First Approach:</h2>
+          <p>We quickly realized that generating multiple ad copies is a perfect task for an autonomous AI agent. Here’s why:</p>
+          <ul>
+            <li>There are no stringent turnaround time restrictions: We don’t have to generate a response within seconds or even minutes. We can let the agent take its time and go through as many reasoning loops as it deems necessary.</li>
+            <li>It’s fairly risk-free: As we all know, LLMs tend to get tipsy from time to time. But, AI that writes copy and doesn’t have the ability to post it autonomously has absolutely no risk of going rogue or causing a PR disaster. It forces humans to be in the loop by default.</li>
+          </ul>
+          <p>To get the job done, I built an AI workflow with an autonomous agent as the orchestrator. Here’s how it all worked:</p>
+          <p>First, I fine-tuned a popular AI model to sound like our ads on a specific paid social channel. That was done using previously created ad copies and synthetic copy briefs. Let's pause here to explain fine-tuning and synthetic data concepts:</p>
+          <ul>
+            <li>Fine-tuning changes the weights of a model such that it becomes proficient at mirroring the tone and structure of the training data. It’s a bit more involved than simply tweaking prompts to get the model to do what you want it to do.</li>
+            <li>Synthetic copy briefs means that I gave the human-created ad copies to an LLM and asked it to imagine copy briefs for those ad copies. The database containing pairs of actual ad copy &amp; the AI-generated copy brief was then used to fine-tune the model.</li>
+          </ul>
+          <p>Once I had a fine-tuned model, I gave it the ad copy briefs as prompts and added our brand and content guidelines in the system prompt. I was able to give the LLM our entire content guidelines during inference thanks to the recent exponential increase in the context lengths of SOTA models.</p>
+          <p>You don’t need an autonomous agent if you limit yourself to the previous two steps. However, in our case, we needed the system to generate multiple ad copies at once and also ensure:</p>
+          <ul>
+            <li>All ad copies are high quality by industry standards.</li>
+            <li>All ad copies adhere to our brand guidelines.</li>
+          </ul>
+          <p>To achieve the above, I used LLMs-as-judges to ensure an ad copy, generated by the model, met the standard quality thresholds and complied with our brand guidelines.</p>
+          <p>Lastly, I built an orchestrator to get the job done using all of the above LLMs. Here’s what the orchestrator, aka autonomous agent, was tasked with:</p>
+          <ul>
+            <li>Take ad copy briefs, supplied by a human, and give it to the fine-tuned model of step one.</li>
+            <li>Take the generated ad copies and send them to the quality checker LLM of step three. If an ad copy fails the check, the autonomous agent should prompt the fine-tuned model again, with the relevant copy brief, to regenerate the copy.</li>
+            <li>The agent will then repeat the process for the brand check. This time around, if an ad copy fails the check, it would be regenerated and would have to pass the quality check first before arriving at the brand check step again.</li>
+            <li>The agent will keep on generating and regenerating copy over and over again until all ad copies pass the quality and brand check. It doesn’t matter how many briefs are given to the agent, it’ll keep working for hours - if need be - to get the job done. This is the promised land of automation: using machines as minions to get more done with less effort.</li>
+          </ul>
+          <p>What was the outcome of the above? Almost all ad copies cleared a human copywriter’s final check with little to no modifications. The final campaign also performed better than our baseline.</p>
+          <p>In the first approach, one person owned the process end-to-end and created a tool that can be used by anyone as long as they know how to run apps on the terminal. Now, let’s talk about how large enterprises would go about achieving the same objective:</p>
+          <h2>Second Approach:</h2>
+          <p>The opportunity for a copy agent is identified by a team. They put together a sub-team to create the agent. That sub-team spends a couple of weeks building a comprehensive presentation detailing the project roadmap and a multi-month rollout plan of the final product (before it is even built). They spend another couple of weeks finding a slot on the leader’s calendar so that they could share their elaborate plan and get a quick pat on the back.</p>
+          <p>Since the marketers don’t have a technical background, they decide to build the agent using Custom GPT. They rely solely on prompt engineering and keep iterating on the system prompt with the hope of reaching a point where the custom GPT spits out high-quality, on-brand ad copy in the first go. But alas, that’s not possible.</p>
+          <p>In the end, they create a tool that’s not much better than manually doing the work. The project becomes another data point for the “State of AI in Business" paper.</p>
+          <p>So, how can you avoid the disaster of the second approach? Follow the checklist below whenever you’re working on or sponsoring an AI project:</p>
+          <figure>
+            <img src="https://media.licdn.com/dms/image/v2/D5612AQH9y0AG6a70GQ/article-inline_image-shrink_1000_1488/B56ZkBNYSBHAAY-/0/1756661929263?e=1786579200&amp;v=beta&amp;t=2kvr6t8Xod_o7cYclyQJ9rTYaGwk_LOCsw-f7hvvzxc" alt="The checklist for AI projects that actually work" loading="lazy">
+            <figcaption>The checklist for AI projects that actually work</figcaption>
+          </figure>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <p><a href="/">← Back home</a></p>
+    </footer>
+  </div>
+</body>
+  </html>

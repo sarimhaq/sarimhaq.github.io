@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How I spent $550 on a single job application — Sarim Haque</title>
+  <meta name="description" content="On computer-use agents, prompt engineering costs, and rethinking how AI should use the web.">
+  <link rel="stylesheet" href="../blog-style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <a class="brand" href="/">Sarim Haque</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/#writing">Writing</a>
+        <a href="https://www.linkedin.com/in/sarimhaque/" rel="noopener">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back-link" href="/#writing">← All writing</a>
+
+      <article>
+        <header class="article-header">
+          <p class="meta">June 9, 2026 · Originally on <a href="https://www.linkedin.com/pulse/how-i-spent-550-single-job-application-didnt-even-get-sarim-haque-7ainc" rel="noopener">LinkedIn</a></p>
+          <h1>How I spent $550 on a single job application and didn't even get a screening call - but it was worth it.</h1>
+        </header>
+
+        <img
+          class="cover"
+          src="https://media.licdn.com/dms/image/v2/D5612AQH2cT_hSI1B0Q/article-cover_image-shrink_600_2000/B56Z6vjwYOJoAU-/0/1781061846772?e=1786579200&amp;v=beta&amp;t=IecLrGuYIrB02UdmWrZo5Cq5p-twKYxArgkwkTJz7-s"
+          alt=""
+          loading="eager"
+        >
+
+        <div class="article-body">
+          <p>One more buzzword is being left by the wayside in the chaotic/dreary/wonderful world of AI: Computer Use Agent (CUA). I started obsessing over them after watching OpenAI's Operator Agent demo. To me, that's the holy grail of autonomous AI - agents that can do work on your behalf while you do whatever heck humans were doing pre industrial revolution.</p>
+
+          <p>CUA models are a hybrid of LLMs and image models. They receive user instructions and a browser screenshot and then decide which browser action to take (click, scroll, type, etc.) to complete the task.</p>
+
+          <p>I want to launch CUA agents as a new sitenote.ai feature. The goal of sitenote is to 10x website conversion rates. But visitors have to do a lot of grunt work to convert. Filling out miles of forms and clicking through hordes of webpages to reach the checkout screen can take years off of ones life.</p>
+
+          <p>The fix? Provide a white-glove experience to customers using CUA agents.</p>
+
+          <ul>
+            <li>Don't have time to find the next available massage slot on our site? We'll do it for you.</li>
+            <li>Don't have the patience to fill pages and pages of soulless forms? Don't worry about it!</li>
+          </ul>
+
+          <p>So I came up with what I thought was a genius architecture over the Christmas break:</p>
+
+          <ul>
+            <li>A user enters a task</li>
+            <li>A deep agent breaks it into tiny todos</li>
+            <li>The same deep agent hands over those tiny todos to a CUA sub-agent.</li>
+            <li>The CUA sub-agent finishes the tiny todo using a CUA model.</li>
+            <li>Step 3 and 4 repeats until task completion.</li>
+          </ul>
+
+          <p>The CUA sub-agents are the real stars. Here's how they are supposed to work:</p>
+
+          <ul>
+            <li>Get the job to be done from a deep agent.</li>
+            <li>Break it into sub steps.</li>
+            <li>Take a browser screenshot and send it and the sub step instructions to a CUA model.</li>
+            <li>The CUA model should come back with the next browser action that'll bring us closer to task completion.</li>
+            <li>Take CUA model's browser action recommendation (dropdown selection, button click, scroll etc. etc.) and convert it into executable code for the browser.</li>
+            <li>Once the code is executed, take a fresh screenshot and the next sub step and repeat the process recursively until you finish the job.</li>
+          </ul>
+
+          <figure>
+            <img
+              src="https://media.licdn.com/dms/image/v2/D5612AQG4iyPgqYkG6w/article-inline_image-shrink_1500_2232/B56Z6vk5T2G0AQ-/0/1781062145818?e=1786579200&amp;v=beta&amp;t=2fd5fPrTmrqRXQcmr1KBI_XpfQXxhvSQMkwMrJGmmck"
+              alt="Illustration of how a CUA sub-agent works"
+              loading="lazy"
+            >
+            <figcaption>Badly drawn illustration of how cua subagent worked</figcaption>
+          </figure>
+
+          <p>The above architecture mirrors how humans use computers. And that's its biggest flaw.</p>
+
+          <p>Let's talk about The Matrix movie for a bit (bear with me). Remember the scene when Neo started seeing the world in 0s and 1s? That was when he realized that he's in the Matrix - which is just a software - and he can change the code whatever way he wants. That enabled him to do things that weren't humanly possible before.</p>
+
+          <p>I had the same epiphany - but for my agent. Using the visual medium to navigate a website is such a human thing to do. But AI's capabilities aren't limited to the organs we got from evolution. Instead of looking at a page, it can read the raw JS/CSS/HTML code. Instead of dragging the cursor over a button to click it, AI can compose and execute a short JS snippet in real time to achieve the same outcome.</p>
+
+          <p>Armed with that insight, I rejigged the sub agent to read raw html code to ground itself on a web page. That made the agent faster and decreased token usage. But then I found an even better solution: Playwright MCP. That gave my agent standard tools to interact with a web page using code. Now, the agent is capable of doing a lot more and with a higher success rate.</p>
+
+          <p>Let's address the elephant in the room - how did I blow through $550 dollars on a single job application? Prompt engineering baby. Applying for a job was a perfect multi-step task to test the agent's capabilities. It has the right amount of complexity to challenge the agent but not too much to overwhelm it. So, that's what I used to optimize the agent prompt and the inference costs kept adding up.</p>
+
+          <p>Here's the agent in action (notice how gracefully it solves captcha): <a href="https://www.youtube.com/watch?v=tJ4Mgm1DbfQ" rel="noopener">Watch on YouTube</a></p>
+
+          <p>Here's the main thing I want you to take away from this post: to use AI in transformational ways, you have to misplace your sense of up and down, of what's possible for a human and what's not. Only then can you tear through your horizon and do stuff that was impossible before.</p>
+
+          <p>P.S. Want to offload tasks to AI? DM me and I'll give you access to the alpha version of the CUA agent.</p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p><a href="/">← Back home</a></p>
+    </footer>
+  </div>
+</body>
+</html>

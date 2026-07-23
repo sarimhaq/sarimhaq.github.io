@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How to Think About AI - Explained With Hand-Drawn Illustrations — Sarim Haque</title>
+  <meta name="description" content="A framework for thinking about AI: wisdom of crowds, context engineering, and the intern metaphor.">
+  <link rel="stylesheet" href="../blog-style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/#writing">Writing</a>
+        <a href="https://superawesomelab.com/" rel="noopener">Super Awesome Lab</a>
+        <a href="https://www.linkedin.com/in/sarimhaque/" rel="noopener">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main>
+      <a class="back-link" href="/#writing">← All writing</a>
+
+      <article>
+        <header class="article-header">
+          <p class="meta">October 18, 2025 · Originally on <a href="https://www.linkedin.com/pulse/how-think-ai-explained-hand-drawn-illustrations-sarim-haque-mdmwc" rel="noopener">LinkedIn</a></p>
+          <h1>How to Think About AI - Explained With Hand-Drawn Illustrations</h1>
+        </header>
+
+        <img
+          class="cover"
+          src="https://media.licdn.com/dms/image/v2/D5612AQGGFuju8Gf6Mg/article-cover_image-shrink_720_1280/B56Zn4f3PEHkAI-/0/1760810730064?e=1786579200&amp;v=beta&amp;t=6WNyURbDcB5lT_9KYea17E0-Aj0BQflVN8u9jRUQI2k"
+          alt="The Right Way To Think About AI"
+          loading="eager"
+        >
+
+        <div class="article-body">
+          <p>[Note: This blog was orignally published on https://sitenote.ai/journal/]</p>
+          <p>Lately, I have been writing a lot of “how to” content about AI. I am both excited by the ways it’ll transform various industries and also scared by how it’ll disrupt my profession. There’s another emotion I feel when talking to fellow marketers about AI: frustration.</p>
+          <p>For context, I’ve been coding AI apps since 2016. One of my earliest projects was a playful marketing app that compared your tweets to Hillary’s or Trump’s using Natural Language Processing - a kind of early version of what we now call language models. Over the years, I’ve built various AI-powered apps and stayed curious about the progress of LLMs and what they can (and can’t) do. That curiosity has given me a decent, though far from perfect, grasp of their capabilities and limits.</p>
+          <figure>
+            <img src="https://media.licdn.com/dms/image/v2/D5612AQGn3O6KKjCQgw/article-inline_image-shrink_1000_1488/B56Zn4gVboI8AQ-/0/1760810852963?e=1786579200&amp;v=beta&amp;t=p0Jpsc-DqEFq_cyr3ZX-UBNvJUz8a7q-OAC4IX_hFwo" alt="You are tearing me apart Lisa!" loading="lazy">
+            <figcaption>You are tearing me apart Lisa!</figcaption>
+          </figure>
+          <p>Going back to the feeling of frustration: it stems from hearing people either overestimating or underestimating the capabilities of AI. So I want to share with you a framework to use when thinking about AI and its possibilities:</p>
+          <h2>Wisdom of crowds vs synthetic intelligence.</h2>
+          <p>❌ Flawed approach: “LLM is a magical piece of software that is almost as intelligent as humans.”</p>
+          <p>✅ Right approach: “LLM is an excellent way to take advantage of the wisdom of crowds without having to interview thousands of folks.”</p>
+          <p>Cambridge dictionary defines intelligence as an ability to learn, understand and make judgments or have opinions that are based on reason. By that definition, LLMs are far from intelligent. They are stateless, which means they lack an inbuilt memory. To make them remember something, you either need to retrain them from scratch or keep providing the piece of information you want them to remember every time you interact with them.</p>
+          <p>Also, they lack the ability to truly understand a concept or form opinions. For example, they don’t really know how internal combustion engines work but they do know how the top 5 relevant websites describe them.</p>
+          <p>So what are they good for?</p>
+          <p>Many moons ago, I came across the concept of Wisdom of Crowds and it has fascinated me ever since. In 1907, an English polymath requested country fair visitors to guess the weight of an ox. No one guessed it right and their estimates were all over the place. But, weirdly enough, the average of all of their guesses was very close to the actual weight of the ox. Individually, people were wrong but collectively, they were quite accurate. That’s how LLMs work. They’re guessing the next word of a sentence at a time based on millions of webpages they’ve looked at. Their guesses are neither exceptionally better or exceptionally worse than the corpus of text they were trained on. This makes their output mediocre, which is still quite impressive.</p>
+          <figure>
+            <img src="https://media.licdn.com/dms/image/v2/D5612AQEIbGeCuwZslA/article-inline_image-shrink_1000_1488/B56Zn4gvcLHkAU-/0/1760810960365?e=1786579200&amp;v=beta&amp;t=bbAnX7CQS-z-mmTcKQep5hySLa4u2-PKoTjMZtOOjm8" alt="Crowd guessing the weight of the ox" loading="lazy">
+            <figcaption>Crowd guessing the weight of the ox</figcaption>
+          </figure>
+          <p>What does the above mean for you? In short, don’t expect AI to produce groundbreaking work. Instead, use the wisdom of crowds it possesses to help you with certain steps of your project.</p>
+          <p>Mediocrity shouldn’t be a deal breaker for the problems you’re solving with LLMs. A mediocre thank you note wouldn’t hurt anyone or a basic critique of your marketing briefs is still exponentially better than no critique at all.</p>
+          <h2>Prompt Engineering Vs Context Engineering</h2>
+          <p>❌ Flawed approach: “If I just tell the AI what I want using an ingenious prompt, it’ll get the work done.”</p>
+          <p>✅ Right approach: “If I tell the AI what I want and also share the right context that’ll help it understand the task, such as examples, historical data etc., it’ll get the work done.”</p>
+          <p>Context engineering was brought under the internet’s spotlight when the CEO of Shopify tweeted about it. So, how is it different from prompt engineering?</p>
+          <p>During the first AI hype cycle of the early 2020s, users of LLMs discovered that to increase their chances of success, they had to invest time in creating the right prompt. However, framing instructions in a certain way can only take you so far. LLMs lack memory so every time you send one a message, you’re essentially talking to a whole different person who relies on you (or the app you’re using) to share the previous messages in the thread to help it understand what’s going on (kind of like the main character of the movie, Memento).</p>
+          <p>You need to share with LLMs persistent pieces of information to keep them on track. Simply giving them instructions won’t cut it. Not only that, but you need to ensure that the information you share with LLMs don’t distract or overwhelm them. The goal is to give LLMs the right piece of information at the right time to help them generate the desired output, that’s context engineering.</p>
+          <figure>
+            <img src="https://media.licdn.com/dms/image/v2/D5612AQHrxVxc0TdExw/article-inline_image-shrink_1000_1488/B56Zn4hMlfKAAU-/0/1760811078839?e=1786579200&amp;v=beta&amp;t=iKoGDJJZ4wkULGQQ7vgEkMp7VexY3ve7oe36es4bwik" alt="Garbage in, garbage out" loading="lazy">
+            <figcaption>Garbage in, garbage out</figcaption>
+          </figure>
+          <p>Let’s say you want to create an ad copy using an LLM chat app. Here are a few things to keep in mind when it comes to context engineering:</p>
+          <ul>
+            <li>You’ll never ask an agency to produce creatives using just one paragraph of instructions, right? Give LLMs the same brief you would have given to your creative agency.</li>
+            <li>Show rather than tell. Share examples of output you expect from LLMs.</li>
+            <li>Lastly, ensure the preference settings of your AI app are up to date i.e. the LLM knows what your role is and what you expect from it.</li>
+          </ul>
+          <h2>A clueless intern vs a genius</h2>
+          <p>❌ Flawed approach: AI is a genie that’ll do what I want it to do with just one prompt - my wish is its command.</p>
+          <p>✅ Right approach: AI requires a lot of hand holding like an exceptionally capable intern with zero experience.</p>
+          <p>Everyone who uses ChatGPT daily already knows this: one prompt is usually not enough to get what you’re looking for. I have seen a lot of people give up on AI since it failed to get the job done in the first go. I believe the depiction of AI in the works of fiction has distorted our expectations.</p>
+          <figure>
+            <img src="https://media.licdn.com/dms/image/v2/D5612AQHtCZIXEhBK2w/article-inline_image-shrink_1000_1488/B56Zn4huSxJoAQ-/0/1760811216729?e=1786579200&amp;v=beta&amp;t=BaU-ki0wp9JqpeTl3ptdVRMKdUG-rRQdnOXbCmJK9-w" alt="Expected a genie, got an intern" loading="lazy">
+            <figcaption>Expected a genie, got an intern</figcaption>
+          </figure>
+          <p>To avoid being disfranchised by LLMs, think of them as clueless interns - like how 90s movies used to portray them. You're the main character, surrounded by interns, and you’re delegating tasks left and right. Interns are coming back with stupid questions or error riddled work and you’re giving them feedback until they get it right. The only difference is that unlike the movies, you aren’t hurting anyone's feelings with your harsh critique.</p>
+          <p>—----</p>
+          <p>One call out before I wrap up: as I am sure you already know, AI models and apps are continuously improving. Some of the advice above might become redundant next week? Next month? Next year? Who knows. Here’s an example: one of the reasons OpenAI developed Sora 2 was to simulate real world environments i.e. give AI the ability to truly understand how engines work by simulating and studying them. I don’t know what’ll happen to humans’ competitive advantage once the AI truly understands the real world. Let’s not go down that rabbit hole today.</p>
+          <p>Anyways, I hope you found this post useful and enjoyed my loose drawings!</p>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p><a href="/">← Back home</a></p>
+    </footer>
+  </div>
+</body>
+</html>

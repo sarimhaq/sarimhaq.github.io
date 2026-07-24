@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Big Data, Small Example: How Data Analytics Can Give You Interesting Insights About Almost Anything — Sarim Haque</title>
+  <meta name="description" content="How data analytics can give you interesting insights about almost anything — GDP, happiness, population growth, and more.">
+  <link rel="stylesheet" href="../blog-style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/#writing">Writing</a>
+        <a href="https://superawesomelab.com/" rel="noopener">Super Awesome Lab</a>
+        <a href="https://www.linkedin.com/in/sarimhaque/" rel="noopener">LinkedIn</a>
+      </nav>
+    </header>
+    <main>
+      <a class="back-link" href="/#writing">← All writing</a>
+      <article>
+        <header class="article-header">
+          <p class="meta">January 16, 2016 · Originally on <a href="https://www.linkedin.com/pulse/big-data-small-example-how-analytics-can-give-you-insights-haque" rel="noopener">LinkedIn</a></p>
+          <h1>Big Data, Small Example: How Data Analytics Can Give You Interesting Insights About Almost Anything</h1>
+        </header>
+        <img class="cover" src="https://media.licdn.com/dms/image/v2/C5112AQHHEfpV3CbvoQ/article-cover_image-shrink_423_752/article-cover_image-shrink_423_752/0/1520083733370?e=1786579200&amp;v=beta&amp;t=VBPf5zOv2Xo2G2nPVBxHW3oi_LdarKowmRYLxErWxHQ" alt="" loading="eager">
+        <div class="article-body">
+          <p>Big data is a term that has been all the rave since 2010 but now when the hype is being translated into actual applications—it’s a good time to learn about what it means, and how it works. Data analysis, on it's own, has been a cornerstone of scientific research for a long time. It has also helped corporations understand their market and their customer base while synthesizing actionable insights to increase their sales and the impact of their marketing messages. As the number of nodes that corporations can probe into has increased, thanks to cellular technology and IoT, the word big was added into the mix. Now organizations have terabytes of data to sniff through. They have a choice to remain dormant or use Big Data Analysis to understand the story behind those numbers and shape their strategies accordingly.</p>
+          <p>According to Wikipedia, Big Data Analysis differentiates itself from Business Intelligence on the basis that it makes use of Inferential Statistics over Explanatory Statistics. As the name implies, Inferential Statistics is used to predict the behaviour of variables beyond the current dataset whereas Explanatory Statistics is used to make judgements about the data at hand. Creating regression models is one of the examples of Inferential Statistics whereas mathematical operations such as finding mean, median and skewness of a distribution are placed under the umbrella of Explanatory Statistics.</p>
+          <p>We all know that each time we open a webpage, we leave our foot print on the website’s server. While some web requests are explicitly made by us, there are a lot of requests that are made on our behalf — sometimes unbeknownst to us. For example, Internet of Things devices relay back scores of data to their parent server about our activity on a daily basis. According to Cisco, the World IP traffic in 2016 will reach an astounding 1.1 Zetabyte (1 Trillion GB). This avalanche of data has brought big challenges for businesses but amidst them, there are scores opportunities too.</p>
+          <p>Let’s consider an example of how Data analysis can give you interesting insights about almost anything. I went on Wikipedia and gathered (read copy/pasted) data regarding 80 different countries. The arbitrary parameters that I am taking into account are GDP Per Capita, Population Growth Rate, GDP Growth Rate &amp; Happiness Index. With any data set, you are bound to have some hypothesis about the correlation between various parameters. The hypothesis that I want to test are as follows:</p>
+          <p>H1: “The happiness index of a Country is directly proportional to its GDP Per Capita”</p>
+          <p>H2: “The population growth rate of a Country is more strongly linked with its GDP growth rate than its GDP Per Capita”.</p>
+          <p>The basis for the first hypothesis is a much debated question in the contemporary popular culture: “Can money buy happiness?” The second question is rooted in the fact that some European Countries with above than average GDP per Capita are facing a negative population growth rate. I will get back to these hypotheses towards the end.</p>
+          <p>I have used a combination of the R Language and Excel for my analysis. The raw data can be found here.</p>
+          <p>Raw data link: <a href="https://docs.google.com/spreadsheets/d/1Z6I1oVij8qevUL8weMf6lxIR9EWIiwZfOCij-9Jzoic/edit?usp=sharing" rel="noopener">https://docs.google.com/spreadsheets/d/1Z6I1oVij8qevUL8weMf6lxIR9EWIiwZfOCij-9Jzoic/edit?usp=sharing</a></p>
+          <p>Let’s start by running the basic functions of Explanatory Statistics to answer these questions:</p>
+          <p>Which countries are leading or lagging within each category?</p>
+          <p>Which countries reside in the middle?</p>
+          <p>Here are the results:</p>
+          <p>There are some interesting observations to be made from the above data. For example, Portugal, a first world Country, has the lowest Happiness Index in the list of 80 countries that contains some third world countries as well. Another interesting anomaly is Greece which, even with its financial crisis, still has an average GDP per Capita. Libya’s -19.8% GDP growth rate can be traced back to the civil war that has the Country in turmoil for quite some time now. It’s amazing to see countries like Turkmenistan &amp; Oman being outliers in the GDP Growth Rate &amp; Population Growth Rate categories, respectively. At the current rate, Oman’s population is set to double in the next 7 years.</p>
+          <p>Carrying forward the same line of thought, let’s consider box plots of each variable and study the distribution of data points and see if there are any outliers. Let’s start with Happiness Index:</p>
+          <img src="https://media.licdn.com/dms/image/v2/C5112AQF16RXvizS3BA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1520196308639?e=1786579200&amp;v=beta&amp;t=za2BqcuFwi3uU0uoDzqvWzA80dxauO_LPycdjTd3RRE" alt="" loading="lazy">
+          <p>The line in the middle represents the median. The area at the top half of the box represents the density of data points above the median. The line at the top, disconnected from the box, is the highest data point which represents Switzerland in the current context. The same logic applies to the bottom half of the box. As we can see, happiness index is almost normally distributed with a little negative skew (higher population above median).</p>
+          <p>Let’s see what GDP Per Capita boxplot has to reveal:</p>
+          <img src="https://media.licdn.com/dms/image/v2/C4E12AQE76KbHUXWqcg/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1520920264708?e=1786579200&amp;v=beta&amp;t=NzM9FoJ3JXNyXlqXsspl9zQIuSN9aVRxWo0mYi04t-Q" alt="" loading="lazy">
+          <p>GDP per Capita boxplot has almost the same characteristics as Happiness Index boxplot with two exceptions: the variance between majority data points isn’t that high and we have two outliers represented by two dots at the top. These outliers are Qatar and Luxembourg, respectively. It turns out; Qatar's GDP per Capita is almost 5 times that of Greece, the Country with an average GDP.</p>
+          <p>Let’s proceed to GDP Growth Rate:</p>
+          <img src="https://media.licdn.com/dms/image/v2/C5112AQEaAyVIhZuYmA/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1520242370291?e=1786579200&amp;v=beta&amp;t=e3hXoakeHIXfZWR4qWOFdoJAM6MWzSrx8BNC-soBgMs" alt="" loading="lazy">
+          <p>In case of GDP Growth Rate we have 4 outliers; Turkmenistan which has, as discussed above, the highest GDP growth rate and Libya, Cyprus &amp; Venezuela which represent the bottom three countries in this category. It’s interesting to see Cyprus &amp; Venezuela among the outliers. Venezuela suffered from plummeting oil prices and political turmoil whereas Cyprus is facing the same debt related problems as Greece.</p>
+          <p>Moving on, the population growth rate has the following story to tell:</p>
+          <img src="https://media.licdn.com/dms/image/v2/C5112AQGQYQHxPnZS0w/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1520062852719?e=1786579200&amp;v=beta&amp;t=3qAcPRt_EuKi4jZC87fa9Qdzlzl40EOzA2-WyY11ZwA" alt="" loading="lazy">
+          <p>It’s apparent from the above that Population Growth Rate distribution has the closet resemblance to a normal distribution with two outliers. Those are Oman and Lebanon. With an average household sizes of approximately, 7 &amp; 5 respectively, it’s no surprise that the population of these countries is growing at a rapid rate.</p>
+          <p>I would like to study GDP Per Capita a bit more. Qatar seems to have a significant lead over other countries. Visualizing it through a bar graph yields the following result:</p>
+          <img src="https://media.licdn.com/dms/image/v2/C5112AQEmHZ63A2PQWQ/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1520173633820?e=1786579200&amp;v=beta&amp;t=SdBPdOWaMqEXfDzljP_D_nu7gQPebujkGL0vzCy32oY" alt="" loading="lazy">
+          <p>Qatar’s oil wealth coupled with a relatively small population makes its GDP tower over rest of the countries.</p>
+          <p>One of my favorite statistical analyses is cluster analysis which provides interesting insights particularly for marketing applications; dividing the target market base into separate entities for companies to curtail their messages accordingly. Conducting hierarchical cluster analysis of the above data while taking into account all the parameters gives us the following picture:</p>
+          <img src="https://media.licdn.com/dms/image/v2/C4E12AQFdIjHlQk3T5w/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1520542253359?e=1786579200&amp;v=beta&amp;t=uWec8IlkksMuzGSccAjvgWWSmdGdSEQFklYWlWCtIUc" alt="" loading="lazy">
+          <p>I admit that the above diagram is a bit busy however I will like to draw your attention to the clusters at the extreme left. Qatar resides in the league of its own whereas Luxembourg &amp; Singapore are also grouped together isolated from the rest. It’s apparent that GDP Per Capita played a significant role in deciding their respective positions.</p>
+          <p>At last, let’s step into the interesting world of Correlation Analysis. Drawing up a quick bubble plot to represent Population Growth Rate, Happiness &amp; GDP Per Capita, we get:</p>
+          <img src="https://media.licdn.com/dms/image/v2/C5112AQH8tPWe870Utg/article-inline_image-shrink_1000_1488/article-inline_image-shrink_1000_1488/0/1520065410209?e=1786579200&amp;v=beta&amp;t=5KzZdwBM6lJDuN9mtNucMHSTd3dmHtTyui97x0TmiN0" alt="" loading="lazy">
+          <p>For our first hypothesis to be true, the size of the bubbles, which represents a Country’s GDP should increase as we move towards higher values of Happiness Index. Even though it’s not clearly discernible from the above picture however we can say with some confidence that most of the small circles are situated towards the left of the graph, hence GDP Per Capita does have some effect on a Country’s Happiness Index. The same could not be said for Population Growth Rate.</p>
+          <p>Consider the following table:</p>
+          <p>The above Correlation table provides us with some interesting insights. Remember, a value of 1 translates to a strong positive correlation, a value of -1 represents a strong negative correlation and 0 represents no correlation at all. Happiness Index and GDP Per Capita have a somewhat strong correlation hence it’s safe to say that statistically speaking, money can buy you happiness. The other correlation worth mentioning is the one between Population growth rate and GDP Growth Rate. The value of 0.237 isn’t that significant but it is higher than 0.117, the correlation between GDP Per Capita and Population Growth Rate. Hence, we can say that Population Growth Rate is more a function of a Country’s GDP growth rate than its current GDP Per Capita.</p>
+          <p>Mathematics is ingrained in all aspects of our daily lives. Mathematical patterns such as Fibonacci sequence and Benford’s law tend to show up in the most unexpected places. For a long time we were restricted to just observing those patterns. Now, with the advent of technology, we can make real time changes based on Big Data Analysis to evolve our systems to work more efficiently. The above example was just a glimpse of what we can decipher from a small numerical dataset. Now imagine what online businesses are able to achieve with unimaginable data points about our behavior on and off the internet.</p>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <p><a href="/">← Back home</a></p>
+    </footer>
+  </div>
+</body>
+</html>

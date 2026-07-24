@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Primary Data Vs Secondary Data : How to Deal With Discrepancies in Market Research — Sarim Haque</title>
+  <meta name="description" content="Using the Chi-squared test to decide when to trust primary vs secondary market research.">
+  <link rel="stylesheet" href="../blog-style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/#writing">Writing</a>
+        <a href="https://superawesomelab.com/" rel="noopener">Super Awesome Lab</a>
+        <a href="https://www.linkedin.com/in/sarimhaque/" rel="noopener">LinkedIn</a>
+      </nav>
+    </header>
+    <main>
+      <a class="back-link" href="/#writing">← All writing</a>
+      <article>
+        <header class="article-header">
+          <p class="meta">December 14, 2015 · Originally on <a href="https://www.linkedin.com/pulse/primary-data-vs-secondary-how-deal-discrepancies-market-sarim-haque" rel="noopener">LinkedIn</a></p>
+          <h1>Primary Data Vs Secondary Data : How to Deal With Discrepancies in Market Research</h1>
+        </header>
+        <img class="cover" src="https://media.licdn.com/dms/image/v2/C5112AQErZuuZ-CIqfQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1520062414804?e=1786579200&amp;v=beta&amp;t=rx6_z-lZWsmQqQGC-zuAGLz5bjamsG56WNfu099DTzE" alt="" loading="eager">
+        <div class="article-body">
+          <p>While dabbling with the R-Language I came across an interesting inferential statistics concept that can help budding entrepreneurs decide when to discount primary research in favor of secondary research and vice verse. So the name of the concept is Chi-squared Test. Wikipedia article on the topic is primarily written in Chinese so let me translate the concept for you through a simple example:</p>
+          <p>Suppose you are doing market research on the different types of soft drinks that people drink in the Waterloo Region. Your secondary market research yields you the following data for the whole of Canada:</p>
+          <p>Sprite: 50%</p>
+          <p>Coke: 30%</p>
+          <p>Pepsi: 20%</p>
+          <p>That data shows you the behavior of the total population of Canada. But you only care for the people of Waterloo Region so you interview 100 different people and you get the following result:</p>
+          <p>Sprite: 10 (10%)</p>
+          <p>Coke: 60 (60%)</p>
+          <p>Pepsi : 30 (30%)</p>
+          <p>From the above it is obvious that your primary and secondary research have yielded two different data sets. So you are now in a predicament: either accept the national data on its face value and super impose it on the Waterloo Region or to accept the fact that people in the Region are an anomaly and consequently, set aside more resources for a thorough primary market research.</p>
+          <p>In these situations, you can retort to Chi-squared test to help you in your decision. So there are 3 primary steps involved in application of Chi:</p>
+          <p>Step 1: Determine your initial hypothesis - In our case the initial hypothesis is that the national data can be super imposed on the population of Waterloo. So our expected and our observed values become:</p>
+          <p>Expected Values: Observed Values</p>
+          <p>Sprite = 50 Sprite = 10</p>
+          <p>Coke = 30 Coke = 60</p>
+          <p>Pepsi = 20 Pepsi = 30</p>
+          <p>Step 2 : Find the X-Squared value - The formula for finding the X-Squared value is as follows:</p>
+          <img src="https://media.licdn.com/dms/image/v2/C4E12AQGTQeUme43csA/article-inline_image-shrink_400_744/article-inline_image-shrink_400_744/0/1520492074383?e=1786579200&amp;v=beta&amp;t=u3oHVidjEMmRPcVYxVgK-7wJiijVg_gGczxSC48ZGpA" alt="" loading="lazy">
+          <p>In our case: O1 = 10, O2 = 60, O3=3 &amp; E1=5, E2=30,E3=20</p>
+          <p>Substituting the respective values in the above formula will give us an X-Squared value of 67.</p>
+          <p>Step 3 : Compare your X-Squared value with the critical value for the respective degree of freedom:</p>
+          <p>Let me first quickly explain the meaning of jargon in the above statement:</p>
+          <p>Degree of Freedom: The degree of freedom is your total data points minus one. In our case, the total data points were 100 (that is we interviewed 100 people in the Waterloo Region) which makes our Degree of Freedom or df = 99.</p>
+          <p>Critical Value: Go to the <a href="http://www.itl.nist.gov/div898/handbook/eda/section3/eda3674.htm" rel="noopener">critical values</a> table and find the critical value for df = 99 in the 0.05 probability column. Why 0.05 column? Well, there is a big explanation for that which I dont have the stamina of diving into. Searching the table for the given parameters yields c = 77.046. The last thing to do is to compare the critical value with your X-Squared Value. If the critical value is greater than your X-Squared value than it is safe to say that your initial hypothesis holds true in the current context and vice versa.</p>
+          <p>In our case since the critical value, 77.046 is greater than our X-Squared Value, 67 therefore we can super impose the secondary research data on to the Waterloo Region's population with certain degree of statistical confidence.</p>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer">
+      <p><a href="/">← Back home</a></p>
+    </footer>
+  </div>
+</body>
+                                                                                                                                                                                                                                                                                                                                                                                                                          </html>

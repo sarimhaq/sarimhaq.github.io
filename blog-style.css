@@ -335,11 +335,15 @@ h2 {
   letter-spacing: -0.01em;
 }
 
-.article-body ul {
+.article-body ul,
+.article-body ol {
   margin: 0 0 1.35rem;
   padding: 0 0 0 1.2rem;
-  list-style: disc;
   border: none;
+}
+
+.article-body ul {
+  list-style: disc;
 }
 
 .article-body li {
